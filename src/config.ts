@@ -3,10 +3,10 @@ import type { ThemeConfig } from './types'
 export const themeConfig: ThemeConfig = {
   // SITE INFO ///////////////////////////////////////////////////////////////////////////////////////////
   site: {
-    website: 'https://astro-chiri.netlify.app/', // Site domain
-    title: 'CHIRI', // Site title
-    author: '3ASH', // Author name
-    description: 'Minimal blog built by Astro', // Site description
+    website: 'https://smythgeospatial.com', // Site domain
+    title: 'Smyth Geospatial', // Site title
+    author: 'PatSmyth', // Author name
+    description: 'Geospatial wanderings', // Site description
     language: 'en-US' // Default language
   },
 

@@ -7,10 +7,20 @@ This content will be displayed at the top of the index page.
 You can leave this empty if you don’t want to show any content.
 -->
 
-A static blog theme based on [Astro](https://astro.build), designed for clarity and focus.
+Hi, I’m Patrick Smyth. I build geospatial software — and I try to make it feel effortless to use.
 
-With a deliberately minimal design, this layout ensures your content takes center stage. It's built for flexibility, offering customization options that honor its clean and elegant aesthetic.
+For 12+ years I’ve lived at the intersection of data engineering, mapping, and product design. I’ve shipped pipelines that ingest millions of features, modeled schemas and graphs for real-world places and processes, and designed clean, intuitive interfaces so people can actually use maps effectively. My happy place is where PostGIS meets Python meets “this should be obvious to the user.”
 
-Effortlessly share your thoughts in _a calm & dustless space._
+What I write about here
 
-Check posts for details and view source on [GitHub](https://github.com/the3ash/astro-chiri).
+- Practical, scalable geospatial patterns (PostGIS, Python, cloud ETL).
+
+- Structuring messy location data for reliability and speed.
+
+- Aproaches to data models and graphs
+
+- LLMs in geospatial workflows—what helps, what’s hype, and how to keep costs sane.
+
+- Reproducible dev: Dockerized environments, tests, and docs that invite contribution.
+
+Turning complex spatial analysis into humane products.
