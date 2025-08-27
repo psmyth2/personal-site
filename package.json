@@ -5,8 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "pnpm exec tsx scripts/toggle-proxy.ts",
-    "build": "pnpm run prebuild && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint .",
@@ -18,7 +17,6 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.4",
-    "@astrojs/netlify": "^6.5.7",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.5.0",
     "@playform/inline": "^0.1.2",
