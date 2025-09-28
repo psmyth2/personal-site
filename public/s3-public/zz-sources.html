@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.12.0">
+<title>Data Sources | S3 Housing</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.3268c726.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight.3268c726.css">
+<link rel="modulepreload" href="./_observablehq/client.e0a0867f.js">
+<link rel="modulepreload" href="./_observablehq/runtime.8eb97cbb.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.8048ec16.js">
+<link rel="modulepreload" href="./_npm/htl@0.3.1/063eb405.js">
+<link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "./_observablehq/client.e0a0867f.js";
+
+define({id: "56a06d9f", inputs: ["html","display"], body: async (html,display) => {
+display(await(
+html.fragment`<hr>`
+))
+}});
+
+define({id: "56a06d9f-1", inputs: ["html","display"], body: async (html,display) => {
+display(await(
+html.fragment`<hr>`
+))
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="./">S3 Housing</a></li>
+  </ol>
+  <ol>
+    <li class="observablehq-link"><a href="./current-market-overview.html">Current Market Conditions</a></li>
+    <li class="observablehq-link"><a href="./historical-market-overview.html">Market Trends Overview</a></li>
+    <li class="observablehq-link"><a href="./z-affordable-housing-overview.html">Affordable Housing Inventory</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./zz-sources.html">Data Sources</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<div id="observablehq-center">
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#current-market-data-dictionary">Current Market Data Dictionary</a></li>
+<li class="observablehq-secondary-link"><a href="#market-trends-data-dictionary">Market Trends Data Dictionary</a></li>
+<li class="observablehq-secondary-link"><a href="#affordable-housing-inventory-data-dictionary">Affordable Housing Inventory Data Dictionary</a></li>
+<li class="observablehq-secondary-link"><a href="#definitions">Definitions</a></li>
+</ol>
+</nav>
+</aside>
+<main id="observablehq-main" class="observablehq">
+<h1 id="data-sources" tabindex="-1"><a class="observablehq-header-anchor" href="#data-sources">Data sources</a></h1>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:56a06d9f:--></div>
+<h2 id="current-market-data-dictionary" tabindex="-1"><a class="observablehq-header-anchor" href="#current-market-data-dictionary">Current Market Data Dictionary</a></h2>
+<table>
+<thead>
+<tr>
+<th>Data source</th>
+<th>Dataset</th>
+<th>Plot name</th>
+<th>Last Updated</th>
+<th>Update Frequency</th>
+<th>Contact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.zillow.com/research/data/" target="_blank" rel="noopener noreferrer">Zillow Home Value Index (ZHVI)</a></td>
+<td>Zillow Home Value Index (ZHVI)</td>
+<td><a href="./current-market-overview.html#zillow-home-value-index-zhvi">Zillow Home Value Index (ZHVI)</a></td>
+<td>Sept. 30, 2024</td>
+<td>Monthly</td>
+<td><a href="https://www.zillow.com/research/zhvi-user-guide/" target="_blank" rel="noopener noreferrer">User Guide</a></td>
+</tr>
+<tr>
+<td><a href="https://www.zillow.com/research/data/" target="_blank" rel="noopener noreferrer">Zillow Observed Rent Index (ZORI)</a></td>
+<td>Zillow Observed Rent Index (ZORI)</td>
+<td><a href="./current-market-overview.html#zillow-observed-rent-index-zori">Zillow Observed Rent Index (ZORI)</a></td>
+<td>Sept. 30, 2024</td>
+<td>Monthly</td>
+<td><a href="https://www.zillow.com/research/zhvi-user-guide/" target="_blank" rel="noopener noreferrer">User Guide</a></td>
+</tr>
+<tr>
+<td>Persons Experiencing Homelessness</td>
+<td>New Mexico Coalition to End Homelessness Provided</td>
+<td><a href="./current-market-overview.html#persons-experiencing-homelessness">Persons Experiencing Homelessness</a></td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td><a href="mailto:jake-b@nmceh.org" target="_blank" rel="noopener noreferrer">Jake Bates</a></td>
+</tr>
+<tr>
+<td>Households Placed into Permanent Housing</td>
+<td>New Mexico Coalition to End Homelessness Provided</td>
+<td><a href="./current-market-overview.html#households-placed-into-permanent-housing">Households Placed into Permanent Housing</a></td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td><a href="mailto:jake-b@nmceh.org" target="_blank" rel="noopener noreferrer">Jake Bates</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="market-trends-data-dictionary" tabindex="-1"><a class="observablehq-header-anchor" href="#market-trends-data-dictionary">Market Trends Data Dictionary</a></h2>
+<table>
+<thead>
+<tr>
+<th>Data source</th>
+<th>Dataset</th>
+<th>Plot name</th>
+<th>Last Updated</th>
+<th>Update Frequency</th>
+<th>Contact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://gps.unm.edu/pop/population-projections.html" target="_blank" rel="noopener noreferrer">University of New Mexico Geospatial and Population Studies</a></td>
+<td>Population Projections 2010-2050</td>
+<td><a href="./historical-market-overview.html#population-forecast">Population Forecast</a></td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td><a href="https://gps.unm.edu/about-us/staff-profiles/jacqueline-a.-miller.html" target="_blank" rel="noopener noreferrer">Dr. Jacqueline Miller</a></td>
+</tr>
+<tr>
+<td><a href="https://data.census.gov/app/mdat/ACSPUMS1Y2023/vars?vv=HINCP,NP&amp;wt=WGTP&amp;g=OwTgrACgTADDCqBlAzGOaYH0YBY76VSA&amp;rv=ucgid" target="_blank" rel="noopener noreferrer">Census PUMS (Public Use Microdata Sample)</a></td>
+<td>Census PUMS (Public Use Microdata Sample) 1-Year, Variables: HINCP,NP,RNTP,SMOCP</td>
+<td><a href="./historical-market-overview.html#households-cost-burdened-by-ami-2023">% Households Cost Burdened by AMI (2023)</a></td>
+<td>September 2023</td>
+<td>Yearly</td>
+<td>NA</td>
+</tr>
+<tr>
+<td><a href="https://data.census.gov/app/mdat/ACSPUMS1Y2023/vars?vv=HINCP,NP&amp;wt=WGTP&amp;g=OwTgrACgTADDCqBlAzGOaYH0YBY76VSA&amp;rv=ucgid" target="_blank" rel="noopener noreferrer">Census PUMS (Public Use Microdata Sample)</a></td>
+<td>Census PUMS (Public Use Microdata Sample) 1-Year, Variables: HINCP,NP,RNTP,SMOCP</td>
+<td><a href="./historical-market-overview.html#cost-burdened-renters-vs-owners-by-ami-2023">% Cost Burdened Renters vs. Owners by AMI (2023)</a></td>
+<td>September 2023</td>
+<td>Yearly</td>
+<td>NA</td>
+</tr>
+<tr>
+<td><a href="https://data.census.gov/table/ACSDT1Y2023.B25032?q=B25032&amp;g=050XX00US35049_160XX00US3570500" target="_blank" rel="noopener noreferrer">Census American Community Survey (ACS)</a></td>
+<td>American Community Survey 1-Year Data (2023), Variable B25032</td>
+<td><a href="./historical-market-overview.html#renter-occupied-multi-family-units-2023">Renter Occupied Muti-family Units (2023)</a></td>
+<td>September 2023</td>
+<td>Yearly</td>
+<td>NA</td>
+</tr>
+<tr>
+<td><a href="https://data.census.gov/table/ACSDT1Y2023.B25003?q=B25003:%20Tenure&amp;g=050XX00US35049" target="_blank" rel="noopener noreferrer">Census American Community Survey (ACS)</a></td>
+<td>American Community Survey 1-Year Data (2017-2023) Variable: B25003</td>
+<td><a href="./historical-market-overview.html#total-housing-units">Total Housing Units</a></td>
+<td>September 2023</td>
+<td>Yearly</td>
+<td>NA</td>
+</tr>
+<tr>
+<td><a href="https://data.census.gov/table/ACSDT1Y2023.B25003?q=B25003:%20Tenure&amp;g=050XX00US35049" target="_blank" rel="noopener noreferrer">Census American Community Survey (ACS)</a></td>
+<td>American Community Survey 1-Year Data (2017-2023) Variable: B25003</td>
+<td><a href="./historical-market-overview.html#owner-occupied-vs-rental-occupied">Owner Occupied vs Rental Occupied</a></td>
+<td>September 2023</td>
+<td>Yearly</td>
+<td>NA</td>
+</tr>
+<tr>
+<td><a href="https://data.census.gov/table/ACSDT1Y2023.B25064?q=B25064:%20Median%20Gross%20Rent%20(Dollars)&amp;g=050XX00US35049" target="_blank" rel="noopener noreferrer">Census American Community Survey (ACS)</a></td>
+<td>American Community Survey 1-Year Data (2017-2023) Variable: B25064</td>
+<td><a href="./historical-market-overview.html#median-rent">Median Rent</a></td>
+<td>September 2023</td>
+<td>Yearly</td>
+<td>NA</td>
+</tr>
+<tr>
+<td><a href="https://data.census.gov/table/ACSDT1Y2023.B25077?q=B25077:%20Median%20Value%20(Dollars)&amp;g=050XX00US35049" target="_blank" rel="noopener noreferrer">Census American Community Survey (ACS)</a></td>
+<td>American Community Survey 1-Year Data (2017-2023) Variable: B25077</td>
+<td><a href="./historical-market-overview.html#median-home-value">Median Home Value</a></td>
+<td>September 2023</td>
+<td>Yearly</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="affordable-housing-inventory-data-dictionary" tabindex="-1"><a class="observablehq-header-anchor" href="#affordable-housing-inventory-data-dictionary">Affordable Housing Inventory Data Dictionary</a></h2>
+<table>
+<thead>
+<tr>
+<th>Data source</th>
+<th>Dataset</th>
+<th>Plot/Maps</th>
+<th>Last Updated</th>
+<th>Update Frequency</th>
+<th>Contact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://santafenm.gov/land-use/current-planning/residential-pipeline" target="_blank" rel="noopener noreferrer">The residential pipeline map</a></td>
+<td><a href="https://services7.arcgis.com/p0Gk2nDbPs7KEqSZ/arcgis/rest/services/Developments_Public_view/FeatureServer" target="_blank" rel="noopener noreferrer">Developments_Public_view</a></td>
+<td><a href="./z-affordable-housing-overview.html#affordable-housing-inventory">Affordable Housing Inventory (all)</a></td>
+<td>Sept. 2024</td>
+<td>Continual basis</td>
+<td><a href="mailto:fhfrank@santafenm.gov" target="_blank" rel="noopener noreferrer">Frank Florence</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="definitions" tabindex="-1"><a class="observablehq-header-anchor" href="#definitions">Definitions</a></h2>
+<hr>
+<h4 id="affordable-housing" tabindex="-1"><a class="observablehq-header-anchor" href="#affordable-housing">Affordable Housing:</a></h4>
+<blockquote>
+<p>housing for which the occupant household pays no more than 30 percent of its income for gross housing costs, including utilities.</p>
+</blockquote>
+<h4 id="cost-burdened-households" tabindex="-1"><a class="observablehq-header-anchor" href="#cost-burdened-households">Cost-Burdened Households:</a></h4>
+<blockquote>
+<p>households who pay more than 30 percent of their income for gross housing costs.</p>
+</blockquote>
+<h4 id="household" tabindex="-1"><a class="observablehq-header-anchor" href="#household">Household:</a></h4>
+<blockquote>
+<p>all the people who occupy a housing unit. A household includes the related family members and all the unrelated people, if any, such as lodgers, foster children, wards, or employees who share the housing unit. A person living alone in a housing unit, or a group of unrelated people sharing a housing unit such as partners or roomers, is also counted as a household.</p>
+</blockquote>
+<h4 id="housing-stock" tabindex="-1"><a class="observablehq-header-anchor" href="#housing-stock">Housing Stock:</a></h4>
+<blockquote>
+<p>the number of existing housing units. Housing Unit – a house, apartment, group of rooms, or single room occupied, or intended for occupancy, as separate living quarters.</p>
+</blockquote>
+<h4 id="low-income-households" tabindex="-1"><a class="observablehq-header-anchor" href="#low-income-households">Low-Income Households:</a></h4>
+<blockquote>
+<p>households whose combined income does not exceed 80 percent of the median household income for the area.</p>
+</blockquote>
+<h4 id="moderate-income-households" tabindex="-1"><a class="observablehq-header-anchor" href="#moderate-income-households">Moderate-Income Households:</a></h4>
+<blockquote>
+<p>households whose combined income is between 80 percent and 150 percent of the median household income for the area.</p>
+</blockquote>
+<h4 id="multifamily-housing" tabindex="-1"><a class="observablehq-header-anchor" href="#multifamily-housing">Multifamily Housing:</a></h4>
+<blockquote>
+<p>a building with more than four residential rental units.</p>
+</blockquote>
+<h4 id="severely-cost-burdened-households" tabindex="-1"><a class="observablehq-header-anchor" href="#severely-cost-burdened-households">Severely Cost-Burdened Households:</a></h4>
+<blockquote>
+<p>households who pay more than 50 percent of their income for gross housing costs.</p>
+</blockquote>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:56a06d9f-1:--></div>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./z-affordable-housing-overview.html"><span>Affordable Housing Inventory</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-12-17T13:26:44">Dec 17, 2024</a>.</div>
+</footer>
+</div>

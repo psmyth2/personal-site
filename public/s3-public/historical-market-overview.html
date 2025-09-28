@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.12.0">
+<title>Market Trends Overview | S3 Housing</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.3268c726.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight.3268c726.css">
+<link rel="modulepreload" href="./_observablehq/client.e0a0867f.js">
+<link rel="modulepreload" href="./_observablehq/runtime.8eb97cbb.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.8048ec16.js">
+<link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.16/e828d8c8.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/407f7a1f.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/7055d4c5.js">
+<link rel="modulepreload" href="./_npm/isoformat@0.2.1/c68fbd73.js">
+<link rel="modulepreload" href="./_npm/interval-tree-1d@1.0.4/a62ae5ce.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/e95f898e.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/d44feff9.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/5830b12a.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/84d7b8e9.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/2c0cdfa2.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/626bedc4.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/00c41b5d.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/b5f7cdc6.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/b22c5864.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/6f15f633.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/ef1ec490.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/5e1ff060.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/5851d7ef.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/dcd02767.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/f1db2593.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/034b7bcb.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/4bb53638.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/bbafde58.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/aa5b35a8.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/32c7fec2.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/567840a0.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/cf9b720b.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/5dcd62f4.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/f8e03c56.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/5bc129e1.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/19c92b44.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/f31b5398.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/8debb4ba.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/4b0cc581.js">
+<link rel="modulepreload" href="./_npm/binary-search-bounds@2.0.5/1ee6c50d.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/5eed35fd.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.1/e67acb27.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/8ac9039b.js">
+<link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "./_observablehq/client.e0a0867f.js";
+import {registerFile} from "./_observablehq/stdlib.8048ec16.js";
+
+registerFile("./data/census-acs-multifamily.json", {"name":"./data/census-acs-multifamily.json","mimeType":"application/json","path":"./_file/data/census-acs-multifamily.d416e9ff.json","lastModified":1734465224379,"size":232});
+registerFile("./data/census-acs.json", {"name":"./data/census-acs.json","mimeType":"application/json","path":"./_file/data/census-acs.cef2fb02.json","lastModified":1730514593049,"size":896});
+registerFile("./data/census-ipums-data.json", {"name":"./data/census-ipums-data.json","mimeType":"application/json","path":"./_file/data/census-ipums-data.77631e43.json","lastModified":1732301309162,"size":763});
+registerFile("./data/population.csv", {"name":"./data/population.csv","mimeType":"text/csv","path":"./_file/data/population.2901a180.csv","lastModified":1729456167295,"size":123});
+
+define({id: "0cff103e", inputs: ["FileAttachment"], outputs: ["population","acsData","pumsData","multiFamilyAcs"], body: (FileAttachment) => {
+const population = FileAttachment("./data/population.csv").csv({ typed: true });
+const acsData = FileAttachment("./data/census-acs.json").json();
+const pumsData = FileAttachment("./data/census-ipums-data.json").json();
+const multiFamilyAcs = FileAttachment("./data/census-acs-multifamily.json").json();
+return {population,acsData,pumsData,multiFamilyAcs};
+}});
+
+define({id: "ccf01409", inputs: ["population"], outputs: ["plotData","transformedData","data"], body: (population) => {
+let plotData = population[0];
+delete plotData[""];
+const transformedData = {};
+
+for (let key in plotData) {
+  // Skip the empty string key
+  if (key !== "") {
+    // Convert the value by removing commas and parsing as an integer
+    const intValue = parseInt(plotData[key].replace(/,/g, ""), 10);
+    // Add the integer key-value pair to the new object
+    transformedData[key] = intValue;
+  }
+}
+
+const data = Object.keys(plotData).map((year) => ({
+  year: +year,
+  population: plotData[year],
+}));
+return {plotData,transformedData,data};
+}});
+
+define({id: "f90b8ae9", inputs: ["display","Plot","data"], body: (display,Plot,data) => {
+display(
+  Plot.plot({
+    // title: "Population Forecast",
+    x: { label: "Year", tickFormat: (d) => d.toFixed(0) },
+    y: {
+      grid: true,
+      label: "Population",
+      labelAnchor: "center",
+      reverse: true,
+      inset: 10,
+    },
+    marginLeft: 75,
+    marks: [
+      Plot.line(data, { x: "year", y: "population" }),
+      Plot.dot(data, { x: "year", y: "population", tip: true, title: d => `Year: ${d.year.toString()}\n Population: ${d.population.toLocaleString("en-US")}`}),
+    ],
+  })
+);
+}});
+
+define({id: "6551d087", inputs: ["pumsData"], outputs: ["categoryMappings","costBurdenedPct","severelyCostBurdenedPct","renterBurdenedPct","ownerBurdenedPct","adjustedRenterBurdenedPct","adjustedOwnerBurdenedPct","combinedData"], body: (pumsData) => {
+const categoryMappings = {
+  '0-30% AMI': '0-30% AMI \n($0 - $27,450)',
+  '31-50% AMI': '31-50% AMI \n($27,451 - $45,750)',
+  '51-60% AMI': '51-60% AMI \n($45,751 - $54,900)',
+  '61-80% AMI': '61-80% AMI \n($54,901 - $73,200)',
+  '81-100% AMI': '81-100% AMI \n($73,201 - $91,500)'
+}
+
+const costBurdenedPct = Object.entries(pumsData[4]).map(([category, value]) => ({
+  category: `${category} AMI`,
+  value
+}));
+const severelyCostBurdenedPct = Object.entries(pumsData[5]).map(([category, value]) => ({
+  category: `${category} AMI`,
+  value
+}));
+
+const renterBurdenedPct = Object.entries(pumsData[6]).map(([category, value]) => ({
+  category: `${category} AMI`,
+  value
+}));
+
+const ownerBurdenedPct = Object.entries(pumsData[7]).map(([category, value]) => ({
+  category: `${category} AMI`,
+  value
+}));
+
+// Adjust the data to ensure percentages add up to 100% per AMI category
+const adjustedRenterBurdenedPct = renterBurdenedPct.map(d => ({
+  category: d.category,
+  value: d.value
+}));
+
+const adjustedOwnerBurdenedPct = ownerBurdenedPct.map(d => {
+  const renterValue = adjustedRenterBurdenedPct.find(r => r.category === d.category).value;
+  return {
+    category: d.category,
+    value: 100 - renterValue
+  };
+});
+
+// Combine renter and owner data into a single dataset
+const combinedData = [
+  ...adjustedOwnerBurdenedPct.map(d => ({ ...d, type: "Owner" })),
+  ...adjustedRenterBurdenedPct.map(d => ({ ...d, type: "Renter" }))
+];
+
+return {categoryMappings,costBurdenedPct,severelyCostBurdenedPct,renterBurdenedPct,ownerBurdenedPct,adjustedRenterBurdenedPct,adjustedOwnerBurdenedPct,combinedData};
+}});
+
+define({id: "ed1feaf1", inputs: ["display","Plot","categoryMappings","costBurdenedPct","severelyCostBurdenedPct"], body: (display,Plot,categoryMappings,costBurdenedPct,severelyCostBurdenedPct) => {
+display(
+  Plot.plot({
+    x: { domain: Object.keys(categoryMappings).map(key => categoryMappings[key]) },
+    y: { grid: true, label: "% of households", labelAnchor: "center", inset: 10 },
+    marginLeft: 75,
+    marginBottom: 55,
+    color: {
+      legend: true,
+      domain: ["Cost Burdened", "Severely Cost Burdened"],
+      range: ["#E69F00", "#D55E00"]
+    },
+    marks: [
+      Plot.barY(costBurdenedPct, {
+        x: d => categoryMappings[d.category],
+        y: "value",
+        fill: "#E69F00",
+        title: (d) => `% Cost burdened: ${(d.value/100).toLocaleString("en-US", { style: "percent"})}`,
+        tip: true,
+      }),
+      Plot.barY(severelyCostBurdenedPct, {
+        x: d => categoryMappings[d.category],
+        y: "value",
+        fill: "#D55E00",
+        title: (d) => `% Severely cost burdened: ${(d.value/100).toLocaleString("en-US", { style: "percent"})}`,
+        tip: true
+      }),
+    ],
+  })
+);
+}});
+
+define({id: "36dc8ca9", inputs: ["display","Plot","categoryMappings","combinedData"], body: (display,Plot,categoryMappings,combinedData) => {
+display(
+  Plot.plot({
+    x: { domain: Object.keys(categoryMappings).map(key => categoryMappings[key]) },
+    y: { grid: true, label: "% of households", labelAnchor: "center", inset: 10 },
+    marginLeft: 75,
+    marginBottom: 55,
+    color: {
+      legend: true,
+      domain: ["Owner", "Renter"],
+      range: ["#009E73", "#56B4E9"] // Two distinct, colorblind-friendly hex colors
+    },
+    marks: [
+      Plot.barY(combinedData, {
+        x: d => categoryMappings[d.category],
+        y: "value",
+        fill: "type",
+        title: (d) => `% ${d.type} burdened: ${(d.value / 100).toLocaleString("en-US", { style: "percent" })}`,
+        tip: true,
+        stack: "type"
+      })
+    ]
+  })
+);
+}});
+
+define({id: "08a58fd1", inputs: ["multiFamilyAcs"], outputs: ["multiFamilyData"], body: (multiFamilyAcs) => {
+const multiFamilyData = Object.entries(multiFamilyAcs[2023])
+  .filter(([unit]) => unit !== "totalMultiFamilyUnits") // Exclude the key totalMultiFamilyUnits
+  .map(([unit, count]) => {
+    let formattedUnit = unit.replace(/(\d+)/, '$1+ ').replace('total', '');
+    if (formattedUnit === "2+ units") {
+      formattedUnit = "duplex";
+    }
+    if (formattedUnit === "1+ unitdetached") {
+      formattedUnit = "1 unit detached"
+    }
+    if (formattedUnit === "1+ unitattached") {
+      formattedUnit ="1 unit attached"
+    }
+    if (formattedUnit === "MobileHomes") {
+      formattedUnit = "mobile homes"
+    }
+    return {
+      unit_type: formattedUnit,
+      count
+    };
+  });
+return {multiFamilyData};
+}});
+
+define({id: "2d5760a8", inputs: ["display","Plot","multiFamilyData"], body: (display,Plot,multiFamilyData) => {
+display(
+  Plot.plot({
+    y: { domain: ["1 unit detached", "1 unit attached", "mobile homes", //"RVs",
+     "duplex", "3+ units", "5+ units", "10+ units", "20+ units", "50+ units"] },
+    x: { grid: true, label: "Count", labelAnchor: "center", inset: 10 },
+    marginLeft: 100,
+    marks: [
+      Plot.barX(multiFamilyData, {
+        x: "count",
+        y: "unit_type",
+        fill: "#9467BD",
+        title: (d) => `${d.unit_type}: ${d.count.toLocaleString("en-US")}`,
+        tip: true
+      })
+    ]
+  })
+);
+}});
+
+define({id: "edb4644f", inputs: ["acsData"], outputs: ["acsTenureData","acsSaleRentalData"], body: (acsData) => {
+const acsTenureData = Object.entries(acsData).map(([year, values]) => ({
+  year: parseInt(year, 10),
+  totalHousingUnits: parseInt(values.totalHousingUnits, 10),
+  ownerOccupied: parseInt(values.ownerOccupied, 10),
+  renterOccupied: parseInt(values.renterOccupied, 10),
+}));
+
+const acsSaleRentalData = Object.entries(acsData).map(([year, values]) => ({
+  year: parseInt(year, 10),
+  medianHome: parseInt(values.medianHome, 10),
+  medianRent: parseInt(values.medianRent, 10),
+}));
+return {acsTenureData,acsSaleRentalData};
+}});
+
+define({id: "72984f4a", inputs: ["display","Plot","acsTenureData"], body: (display,Plot,acsTenureData) => {
+display(
+  Plot.plot({
+    // title: "Total Housing Units",
+    x: { label: "Year", tickFormat: (d) => d.toFixed(0) },
+    y: {
+      grid: true,
+      label: "Housing Units",
+      labelAnchor: "center",
+      inset: 10,
+      // domain: [61000, 78000],
+    },
+    marginLeft: 75,
+    marks: [
+      Plot.line(acsTenureData, { x: "year", y: "totalHousingUnits" }),
+      Plot.dot(acsTenureData, {
+        x: "year",
+        y: "totalHousingUnits",
+        fill: "blue",
+        tip: true,
+        title: d => `Year: ${d.year.toString()}\n Units: ${d.totalHousingUnits.toLocaleString("en-US")}`
+      }),
+    ],
+  })
+);
+}});
+
+define({id: "3080dce9", inputs: ["display","Plot","acsTenureData"], body: (display,Plot,acsTenureData) => {
+display(
+  Plot.plot({
+    // title: "Owner Occupied vs Rental Occupied",
+    x: { label: "Year", tickFormat: (d) => d.toFixed(0) },
+    y: { grid: true, label: "Housing Units", labelAnchor: "center", inset: 10 },
+    marginLeft: 75,
+    color: {
+      legend: true,
+      domain: ["Owner Occupied", "Renter Occupied"],
+      range: ["#1b9e77", "#d95f02"]
+    },
+    marks: [
+      Plot.barY(acsTenureData, {
+        x: "year",
+        y: "ownerOccupied",
+        fill: "#1b9e77",
+        title: (d) => `Owner Occupied: ${d.ownerOccupied.toLocaleString("en-US")}`,
+        tip: true
+      }),
+      Plot.barY(acsTenureData, {
+        x: "year",
+        y: "renterOccupied",
+        fill: "#d95f02",
+        title: (d) => `Renter Occupied: ${d.renterOccupied.toLocaleString("en-US")}`,
+        tip: true
+      }),
+    ],
+  })
+);
+}});
+
+define({id: "189757bb", inputs: ["display","Plot","acsSaleRentalData"], body: (display,Plot,acsSaleRentalData) => {
+display(
+  Plot.plot({
+    // title: "Median Rent",
+    x: { label: "Year", tickFormat: (d) => d.toFixed(0) },
+    y: { grid: true, label: "Price", labelAnchor: "center", inset: 10,
+      tickFormat: d => d.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0 })
+     },
+    marginLeft: 75,
+    marks: [
+      Plot.line(acsSaleRentalData, {
+        x: "year",
+        y: "medianRent",
+      }),
+      Plot.dot(acsSaleRentalData, {
+        x: "year",
+        y: "medianRent",
+        fill: "#D55E00",
+        title: (d) => `Median rent ($): ${d.medianRent.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0 })}`,
+        tip: true
+      }),
+    ],
+  })
+);
+}});
+
+define({id: "d251ad58", inputs: ["display","Plot","acsSaleRentalData"], body: (display,Plot,acsSaleRentalData) => {
+display(
+  Plot.plot({
+    // title: "Median Home Value",
+    x: { label: "Year", tickFormat: (d) => d.toFixed(0) },
+    y: { grid: true, label: "Price", labelAnchor: "center", inset: 10,
+      tickFormat: d => d.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0 })
+     },
+    marginLeft: 75,
+    marks: [
+      Plot.line(acsSaleRentalData, {
+        x: "year",
+        y: "medianHome",
+      }),
+      Plot.dot(acsSaleRentalData, {
+        x: "year",
+        y: "medianHome",
+        fill: "#1b9e77",
+        title: (d) => `Median home value ($): ${d.medianHome.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0 })}`,
+        tip: true
+      }),
+    ],
+  })
+);
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="./">S3 Housing</a></li>
+  </ol>
+  <ol>
+    <li class="observablehq-link"><a href="./current-market-overview.html">Current Market Conditions</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./historical-market-overview.html">Market Trends Overview</a></li>
+    <li class="observablehq-link"><a href="./z-affordable-housing-overview.html">Affordable Housing Inventory</a></li>
+    <li class="observablehq-link"><a href="./zz-sources.html">Data Sources</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<div id="observablehq-center">
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#population-forecast">Population Forecast</a></li>
+<li class="observablehq-secondary-link"><a href="#households-cost-burdened-by-ami-2023">% Households Cost Burdened by AMI (2023)</a></li>
+<li class="observablehq-secondary-link"><a href="#cost-burdened-renters-vs-owners-by-ami-2023">% Cost Burdened Renters vs. Owners by AMI (2023)</a></li>
+<li class="observablehq-secondary-link"><a href="#renter-occupied-multi-family-units-2023">Renter Occupied Multi-family Units (2023)</a></li>
+<li class="observablehq-secondary-link"><a href="#total-housing-units">Total Housing Units</a></li>
+<li class="observablehq-secondary-link"><a href="#owner-occupied-vs-rental-occupied">Owner Occupied vs Rental Occupied</a></li>
+<li class="observablehq-secondary-link"><a href="#median-rent">Median Rent</a></li>
+<li class="observablehq-secondary-link"><a href="#median-home-value">Median Home Value</a></li>
+</ol>
+</nav>
+</aside>
+<main id="observablehq-main" class="observablehq">
+<h1 id="market-trends-overview" tabindex="-1"><a class="observablehq-header-anchor" href="#market-trends-overview">Market Trends Overview</a></h1>
+<h4 id="santa-fe-county-except-where-specified" tabindex="-1"><a class="observablehq-header-anchor" href="#santa-fe-county-except-where-specified">(Santa Fe County except where specified)</a></h4>
+<hr>
+<div class="observablehq observablehq--block"><!--:0cff103e:--></div>
+<div class="observablehq observablehq--block"><!--:ccf01409:--></div>
+<h2 id="population-forecast" tabindex="-1"><a class="observablehq-header-anchor" href="#population-forecast">Population Forecast</a></h2>
+<div class="observablehq observablehq--block"><!--:f90b8ae9:--></div>
+<h5 id="data-source-university-of-new-mexico-geospatial-and-population-studies" tabindex="-1">Data source: University of New Mexico Geospatial and Population Studies</h5>
+<hr>
+<div class="observablehq observablehq--block"><!--:6551d087:--></div>
+<h2 id="households-cost-burdened-by-ami-2023" tabindex="-1"><a class="observablehq-header-anchor" href="#households-cost-burdened-by-ami-2023">% Households Cost Burdened by AMI (2023)</a></h2>
+<h3 id="area-median-income-ami-91-500" tabindex="-1"><a class="observablehq-header-anchor" href="#area-median-income-ami-91-500">Area Median Income (AMI): $91,500</a></h3>
+<div class="observablehq observablehq--block"><!--:ed1feaf1:--></div>
+<h6 id="data-sources-census-pums-public-use-microdata-sample" tabindex="-1">Data sources: Census PUMS (Public Use Microdata Sample)</h6>
+<hr>
+<h2 id="cost-burdened-renters-vs-owners-by-ami-2023" tabindex="-1"><a class="observablehq-header-anchor" href="#cost-burdened-renters-vs-owners-by-ami-2023">% Cost Burdened Renters vs. Owners by AMI (2023)</a></h2>
+<h3 id="area-median-income-ami-91-500-1" tabindex="-1"><a class="observablehq-header-anchor" href="#area-median-income-ami-91-500-1">Area Median Income (AMI): $91,500</a></h3>
+<div class="observablehq observablehq--block"><!--:36dc8ca9:--></div>
+<h6 id="data-sources-census-pums-public-use-microdata-sample-1" tabindex="-1">Data sources: Census PUMS (Public Use Microdata Sample)</h6>
+<hr>
+<div class="observablehq observablehq--block"><!--:08a58fd1:--></div>
+<h2 id="renter-occupied-multi-family-units-2023" tabindex="-1"><a class="observablehq-header-anchor" href="#renter-occupied-multi-family-units-2023">Renter Occupied Multi-family Units (2023)</a></h2>
+<h3 id="total-multi-family-rental-units-22-224" tabindex="-1"><a class="observablehq-header-anchor" href="#total-multi-family-rental-units-22-224">Total Multi-family Rental Units: <strong>22,224</strong></a></h3>
+<div class="observablehq observablehq--block"><!--:2d5760a8:--></div>
+<h5 id="data-source-census-american-community-survey-acs-2023" tabindex="-1">Data source: Census American Community Survey (ACS) 2023</h5>
+<hr>
+<div class="observablehq observablehq--block"><!--:edb4644f:--></div>
+<h2 id="total-housing-units" tabindex="-1"><a class="observablehq-header-anchor" href="#total-housing-units">Total Housing Units</a></h2>
+<div class="observablehq observablehq--block"><!--:72984f4a:--></div>
+<h5 id="data-source-census-american-community-survey-acs-2017-2023" tabindex="-1">Data source: Census American Community Survey (ACS) 2017-2023</h5>
+<hr>
+<h2 id="owner-occupied-vs-rental-occupied" tabindex="-1"><a class="observablehq-header-anchor" href="#owner-occupied-vs-rental-occupied">Owner Occupied vs Rental Occupied</a></h2>
+<div class="observablehq observablehq--block"><!--:3080dce9:--></div>
+<h5 id="data-source-census-american-community-survey-acs-2017-2023-1" tabindex="-1">Data source: Census American Community Survey (ACS) 2017-2023</h5>
+<hr>
+<h2 id="median-rent" tabindex="-1"><a class="observablehq-header-anchor" href="#median-rent">Median Rent</a></h2>
+<div class="observablehq observablehq--block"><!--:189757bb:--></div>
+<h5 id="data-source-census-american-community-survey-acs-2017-2023-2" tabindex="-1">Data source: Census American Community Survey (ACS) 2017-2023</h5>
+<hr>
+<h2 id="median-home-value" tabindex="-1"><a class="observablehq-header-anchor" href="#median-home-value">Median Home Value</a></h2>
+<div class="observablehq observablehq--block"><!--:d251ad58:--></div>
+<hr>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./current-market-overview.html"><span>Current Market Conditions</span></a><a rel="next" href="./z-affordable-housing-overview.html"><span>Affordable Housing Inventory</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-12-17T13:26:44">Dec 17, 2024</a>.</div>
+</footer>
+</div>

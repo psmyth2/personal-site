@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.12.0">
+<title>Current Market Conditions | S3 Housing</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.3268c726.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight.3268c726.css">
+<link rel="modulepreload" href="./_observablehq/client.e0a0867f.js">
+<link rel="modulepreload" href="./_observablehq/runtime.8eb97cbb.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.8048ec16.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/7055d4c5.js">
+<link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.16/e828d8c8.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/e95f898e.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/d44feff9.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/5830b12a.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/84d7b8e9.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/2c0cdfa2.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/626bedc4.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/00c41b5d.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/b5f7cdc6.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/b22c5864.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/407f7a1f.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/6f15f633.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/ef1ec490.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/5e1ff060.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/5851d7ef.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/dcd02767.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/f1db2593.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/034b7bcb.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/4bb53638.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/bbafde58.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/aa5b35a8.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/32c7fec2.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/567840a0.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/cf9b720b.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/5dcd62f4.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/f8e03c56.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/5bc129e1.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/19c92b44.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/f31b5398.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/8debb4ba.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/4b0cc581.js">
+<link rel="modulepreload" href="./_npm/isoformat@0.2.1/c68fbd73.js">
+<link rel="modulepreload" href="./_npm/interval-tree-1d@1.0.4/a62ae5ce.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/5eed35fd.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.1/e67acb27.js">
+<link rel="modulepreload" href="./_npm/binary-search-bounds@2.0.5/1ee6c50d.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/8ac9039b.js">
+<link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "./_observablehq/client.e0a0867f.js";
+import {registerFile} from "./_observablehq/stdlib.8048ec16.js";
+
+registerFile("./data/homeless.json", {"name":"./data/homeless.json","mimeType":"application/json","path":"./_file/data/homeless.24d6d147.json","lastModified":1730521549343,"size":558});
+registerFile("./data/zillow-estimates.json", {"name":"./data/zillow-estimates.json","mimeType":"application/json","path":"./_file/data/zillow-estimates.24a86606.json","lastModified":1730573708063,"size":5918});
+registerFile("./data/zillow-rental-estimates.json", {"name":"./data/zillow-rental-estimates.json","mimeType":"application/json","path":"./_file/data/zillow-rental-estimates.a49cd65b.json","lastModified":1730146280208,"size":2080});
+
+define({id: "2aa1ff84", inputs: ["FileAttachment"], outputs: ["zillowHousingData","zillowRentalData","homelessData"], body: (FileAttachment) => {
+const zillowHousingData = FileAttachment("./data/zillow-estimates.json").json();
+const zillowRentalData = FileAttachment("./data/zillow-rental-estimates.json").json();
+const homelessData = FileAttachment("./data/homeless.json").json();
+return {zillowHousingData,zillowRentalData,homelessData};
+}});
+
+define({id: "e7948660", inputs: ["zillowHousingData"], outputs: ["transformedData","twoYearsAgo","filteredData"], body: (zillowHousingData) => {
+const transformedData = Object.entries(zillowHousingData).map(([date, price]) => ({
+  date: new Date(date),
+  price: parseFloat(price)
+}));
+
+const twoYearsAgo = new Date();
+twoYearsAgo.setFullYear(twoYearsAgo.getFullYear() - 2);
+const filteredData = transformedData.filter(d => d.date >= twoYearsAgo);
+return {transformedData,twoYearsAgo,filteredData};
+}});
+
+define({id: "2ef888ac", inputs: ["zillowRentalData"], outputs: ["transformedRentalData","twoYearsAgo","filteredRentalData"], body: (zillowRentalData) => {
+const transformedRentalData = Object.entries(zillowRentalData).map(([date, price]) => ({
+  date: new Date(date),
+  price: parseFloat(price)
+}));
+
+const twoYearsAgo = new Date();
+twoYearsAgo.setFullYear(twoYearsAgo.getFullYear() - 2);
+const filteredRentalData = transformedRentalData.filter(d => d.date >= twoYearsAgo);
+return {transformedRentalData,twoYearsAgo,filteredRentalData};
+}});
+
+define({id: "cf757eb4", inputs: ["display","Plot","d3","filteredData"], body: (display,Plot,d3,filteredData) => {
+display(
+  Plot.plot({
+    // title: "Zillow Home Value Index (ZHVI)",
+    x: { 
+      grid: true,
+      label: "Date",
+      inset: 10, 
+      tickFormat: d => `${d3.timeFormat("%m-%d")(d)}\n${d3.timeFormat("%Y")(d)}`,
+      ticks: d3.timeMonth.every(2)
+    },
+    y: { 
+      grid: true, 
+      label: "Home Price", 
+      labelAnchor: "center", 
+      inset: 10,
+      tickFormat: d => d.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0 })
+    },
+    marginLeft: 75,
+    marks: [
+      Plot.line(filteredData, { x: "date", y: "price",}),
+      Plot.dot(filteredData, { x: "date", y: "price", fill: "#0072B2", tip: true, title: d => `Date: ${d3.timeFormat("%m-%d-%Y")(d.date)}\n Price: ${d.price.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0 })}`})
+    ]
+  })
+);
+}});
+
+define({id: "a688b9fc", inputs: ["display","Plot","d3","filteredRentalData"], body: (display,Plot,d3,filteredRentalData) => {
+display(
+  Plot.plot({
+    // title: "Zillow Observed Rent Index (ZORI)",
+    x: { 
+      grid: true,
+      label: "Date",
+      inset: 10,
+      tickFormat: d => `${d3.timeFormat("%m-%d")(d)}\n${d3.timeFormat("%Y")(d)}`,
+      ticks: d3.timeMonth.every(2)
+    },
+    y: { 
+      grid: true, 
+      label: "Observed Market Rate Rent", 
+      labelAnchor: "center", 
+      inset: 10,
+      tickFormat: d => d.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0 })
+    },
+    marginLeft: 75,
+    marks: [
+      Plot.line(filteredRentalData, { x: "date", y: "price",}),
+      Plot.dot(filteredRentalData, { x: "date", y: "price", fill: "#0072B2", tip: true, title: d => `Date: ${d3.timeFormat("%m-%d-%Y")(d.date)}\n Price: ${d.price.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0 })}` })
+    ]
+  })
+);
+}});
+
+define({id: "f62dd51f", inputs: ["homelessData"], outputs: ["clientsData","householdsData"], body: (homelessData) => {
+// Transform the data for clients_in_HMIS_projects
+const clientsData = homelessData.map(item => {
+  const year = Object.keys(item)[0];
+  return {
+    year: parseInt(year),
+    value: item[year].clients_in_HMIS_projects
+  };
+});
+
+// Transform the data for households_served_in_permanent_housing
+const householdsData = homelessData.map(item => {
+  const year = Object.keys(item)[0];
+  return {
+    year: parseInt(year),
+    value: item[year].households_served_in_permanent_housing
+  };
+});
+
+return {clientsData,householdsData};
+}});
+
+define({id: "04dbc073", inputs: ["display","Plot","d3","clientsData"], body: (display,Plot,d3,clientsData) => {
+display(
+  Plot.plot({
+    y: { label: "Year", tickFormat: d3.format("d") },
+    x: { grid: true, label: "Clients in HMIS Projects", labelAnchor: "center", inset: 10 },
+    marginLeft: 75,
+    marks: [
+      Plot.barX(clientsData, {
+        y: "year",
+        x: "value",
+        fill: "#1b9e77",
+        title: (d) => `Year: ${d.year}\nClients: ${d.value.toLocaleString("en-US")}`,
+        tip: true,
+        inset: 2
+      })
+    ]
+  })
+);
+}});
+
+define({id: "cca6a121", inputs: ["display","Plot","d3","householdsData"], body: (display,Plot,d3,householdsData) => {
+display(
+  Plot.plot({
+    y: { label: "Year", tickFormat: d3.format("d") },
+    x: { grid: true, label: "Households Served in Permanent Housing", labelAnchor: "center", inset: 10 },
+    marginLeft: 75,
+    marks: [
+      Plot.barX(householdsData, {
+        y: "year",
+        x: "value",
+        fill: "#d95f02",
+        title: (d) => `Year: ${d.year}\nHouseholds: ${d.value.toLocaleString("en-US")}`,
+        tip: true,
+        inset: 2 // Adjust this value to increase the padding between bars
+      })
+    ]
+  })
+);
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="./">S3 Housing</a></li>
+  </ol>
+  <ol>
+    <li class="observablehq-link observablehq-link-active"><a href="./current-market-overview.html">Current Market Conditions</a></li>
+    <li class="observablehq-link"><a href="./historical-market-overview.html">Market Trends Overview</a></li>
+    <li class="observablehq-link"><a href="./z-affordable-housing-overview.html">Affordable Housing Inventory</a></li>
+    <li class="observablehq-link"><a href="./zz-sources.html">Data Sources</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<div id="observablehq-center">
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#zillow-home-value-index-zhvi">Zillow Home Value Index (ZHVI)</a></li>
+<li class="observablehq-secondary-link"><a href="#zillow-observed-rent-index-zori">Zillow Observed Rent Index (ZORI)</a></li>
+<li class="observablehq-secondary-link"><a href="#persons-experiencing-homelessness">Persons Experiencing Homelessness</a></li>
+<li class="observablehq-secondary-link"><a href="#households-placed-into-permanent-housing">Households Placed into Permanent Housing</a></li>
+</ol>
+</nav>
+</aside>
+<main id="observablehq-main" class="observablehq">
+<h1 id="current-market-conditions" tabindex="-1"><a class="observablehq-header-anchor" href="#current-market-conditions">Current Market Conditions</a></h1>
+<h3 id="santa-fe-county-except-where-specified" tabindex="-1"><a class="observablehq-header-anchor" href="#santa-fe-county-except-where-specified">(Santa Fe County except where specified)</a></h3>
+<div class="observablehq observablehq--block"><!--:2aa1ff84:--></div>
+<div class="observablehq observablehq--block"><!--:e7948660:--></div>
+<div class="observablehq observablehq--block"><!--:2ef888ac:--></div>
+<hr>
+<h2 id="zillow-home-value-index-zhvi" tabindex="-1"><a class="observablehq-header-anchor" href="#zillow-home-value-index-zhvi">Zillow Home Value Index (ZHVI)</a></h2>
+<div class="observablehq observablehq--block"><!--:cf757eb4:--></div>
+<h6 id="data-source-zhvi-is-a-measure-of-the-typical-home-value-and-market-changes-across-a-given-region-and-housing-type-it-reflects-the-typical-value-for-homes-in-the-35th-to-65th-percentile-range" tabindex="-1">Data source: ZHVI is a measure of the typical home value and market changes across a given region and housing type. It reflects the typical value for homes in the 35th to 65th percentile range</h6>
+<hr>
+<h2 id="zillow-observed-rent-index-zori" tabindex="-1"><a class="observablehq-header-anchor" href="#zillow-observed-rent-index-zori">Zillow Observed Rent Index (ZORI)</a></h2>
+<div class="observablehq observablehq--block"><!--:a688b9fc:--></div>
+<h6 id="zori-is-a-repeat-rent-index-that-is-weighted-to-the-rental-housing-stock-to-ensure-representativeness-across-the-entire-market-not-just-those-homes-currently-listed-for-rent" tabindex="-1">ZORI is a repeat-rent index that is weighted to the rental housing stock to ensure representativeness across the entire market, not just those homes currently listed for-rent</h6>
+<hr>
+<h2 id="persons-experiencing-homelessness" tabindex="-1"><a class="observablehq-header-anchor" href="#persons-experiencing-homelessness">Persons Experiencing Homelessness</a></h2>
+<h4 id="city-of-santa-fe" tabindex="-1"><a class="observablehq-header-anchor" href="#city-of-santa-fe">(City of Santa Fe)</a></h4>
+<div class="observablehq observablehq--block"><!--:f62dd51f:--></div>
+<div class="observablehq observablehq--block"><!--:04dbc073:--></div>
+<h6 id="data-source-new-mexico-coalition-to-end-homelessness" tabindex="-1">Data source: New Mexico Coalition to End Homelessness</h6>
+<hr>
+<h2 id="households-placed-into-permanent-housing" tabindex="-1"><a class="observablehq-header-anchor" href="#households-placed-into-permanent-housing">Households Placed into Permanent Housing</a></h2>
+<h4 id="city-of-santa-fe-1" tabindex="-1"><a class="observablehq-header-anchor" href="#city-of-santa-fe-1">(City of Santa Fe)</a></h4>
+<div class="observablehq observablehq--block"><!--:cca6a121:--></div>
+<h6 id="data-source-new-mexico-coalition-to-end-homelessness-1" tabindex="-1">Data source: New Mexico Coalition to End Homelessness</h6>
+<hr>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./"><span>S3 Housing</span></a><a rel="next" href="./historical-market-overview.html"><span>Market Trends Overview</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-12-17T13:26:44">Dec 17, 2024</a>.</div>
+</footer>
+</div>

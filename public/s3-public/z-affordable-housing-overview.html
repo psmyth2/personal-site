@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.12.0">
+<title>Affordable Housing Inventory | S3 Housing</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.3268c726.css">
+<link rel="preload" as="style" href="./_npm/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight.3268c726.css">
+<link rel="stylesheet" type="text/css" href="./_npm/leaflet@1.9.4/dist/leaflet.css">
+<link rel="modulepreload" href="./_observablehq/client.e0a0867f.js">
+<link rel="modulepreload" href="./_observablehq/runtime.8eb97cbb.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.8048ec16.js">
+<link rel="modulepreload" href="./_npm/leaflet@1.9.4/d8a0af43.js">
+<link rel="modulepreload" href="./_npm/htl@0.3.1/063eb405.js">
+<link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.16/e828d8c8.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/7055d4c5.js">
+<link rel="modulepreload" href="./_npm/isoformat@0.2.1/c68fbd73.js">
+<link rel="modulepreload" href="./_npm/interval-tree-1d@1.0.4/a62ae5ce.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/e95f898e.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/d44feff9.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/5830b12a.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/84d7b8e9.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/2c0cdfa2.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/626bedc4.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/00c41b5d.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/b5f7cdc6.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/b22c5864.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/407f7a1f.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/6f15f633.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/ef1ec490.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/5e1ff060.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/5851d7ef.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/dcd02767.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/f1db2593.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/034b7bcb.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/4bb53638.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/bbafde58.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/aa5b35a8.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/32c7fec2.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/567840a0.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/cf9b720b.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/5dcd62f4.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/f8e03c56.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/5bc129e1.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/19c92b44.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/f31b5398.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/8debb4ba.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/4b0cc581.js">
+<link rel="modulepreload" href="./_npm/binary-search-bounds@2.0.5/1ee6c50d.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/5eed35fd.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.1/e67acb27.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/8ac9039b.js">
+<link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "./_observablehq/client.e0a0867f.js";
+import {registerFile} from "./_observablehq/stdlib.8048ec16.js";
+
+registerFile("./data/housing-pipeline.json", {"name":"./data/housing-pipeline.json","mimeType":"application/json","path":"./_file/data/housing-pipeline.c02e7f2b.json","lastModified":1729620975028,"size":41224});
+
+define({id: "25dea127", inputs: ["FileAttachment"], outputs: ["housing"], body: (FileAttachment) => {
+const housing = FileAttachment("./data/housing-pipeline.json").json();
+return {housing};
+}});
+
+define({id: "e018adee", outputs: ["typeMapping","colorMappings","statusMappings","typeMappings","type2Mappings"], body: () => {
+const typeMapping = {
+  MF: "Multi-family",
+  SF: "Single-family",
+};
+
+const colorMappings = {
+  "Alternative Compliance": "#4269d0", //blue
+  "FILO": "#efb118", //yellow-gold
+  "Inclusion": "#ff725c", //salmon
+  "Not Applicable": "#6cc5b0", //turquoise
+  "Small Project Fee": "#3ca951", //green
+};
+
+const statusMappings = {
+  "Completed": "green",
+  "Under Construction": "blue",
+  "Approved": "purple",
+  "Under Review": "yellow",
+};
+
+const typeMappings = {
+  "Multi-family": "#4269d0",
+  "Single-family": "#efb118",
+}
+
+const type2Mappings = {
+  "MF": "#4269d0",
+  "SF": "#efb118",
+}
+return {typeMapping,colorMappings,statusMappings,typeMappings,type2Mappings};
+}});
+
+define({id: "4862493d", inputs: ["housing","typeMapping"], outputs: ["housingProperties","aggregatedData","aggregatedStatus","aggregatedType"], body: (housing,typeMapping) => {
+const housingProperties = housing.features.map((d) => d.properties);
+const aggregatedData = Object.entries(
+  housingProperties.reduce((acc, d) => {
+    acc[d.AffordableCategory] = (acc[d.AffordableCategory] || 0) + d.UNITS;
+    return acc;
+  }, {})
+).map(([AffordableCategory, UNITS]) => ({ AffordableCategory, UNITS }));
+
+const aggregatedStatus = Object.entries(
+  housingProperties.reduce((acc, d) => {
+    acc[d.PjctStatus] = (acc[d.PjctStatus] || 0) + d.UNITS;
+    return acc;
+  }, {})
+).map(([PjctStatus, UNITS]) => ({ PjctStatus, UNITS }));
+
+const aggregatedType = Object.entries(
+  housingProperties.reduce((acc, d) => {
+    acc[d.TYPE] = (acc[d.TYPE] || 0) + d.UNITS;
+    return acc;
+  }, {})
+).map(([TYPE, UNITS]) => ({
+  Type: typeMapping[TYPE] || TYPE, // Use the full name from typeMapping if available
+  UNITS,
+}));
+return {housingProperties,aggregatedData,aggregatedStatus,aggregatedType};
+}});
+
+define({id: "12da62f5", inputs: ["Plot"], outputs: ["affordableCategory"], body: (Plot) => {
+function affordableCategory(data, { width } = {}) {
+  return Plot.plot({
+    title: "Affordable Category",
+    x: { grid: true, inset: 10, label: "Affordable Category" },
+    y: { grid: true, label: "Units Count" },
+    marginBottom: 50,
+    color: { legend: true },
+    marks: [
+      Plot.barY(data, {
+        x: "AffordableCategory",
+        y: "UNITS",
+        fill: "AffordableCategory",
+        title: (d) => `Total units: ${d.UNITS}`,
+        tip: true,
+      }),
+    ],
+  });
+}
+return {affordableCategory};
+}});
+
+define({id: "61efb8d1", inputs: ["Plot","colorMappings"], outputs: ["legend"], body: (Plot,colorMappings) => {
+const legend = Plot.legend({
+  color: {
+    type: "categorical",
+    domain: Object.keys(colorMappings),
+    range: Object.values(colorMappings),
+  },
+  title: "Affordable category",
+});
+return {legend};
+}});
+
+define({id: "ea4a2381", inputs: ["Plot","statusMappings"], outputs: ["legend2"], body: (Plot,statusMappings) => {
+const legend2 = Plot.legend({
+  color: {
+    type: "categorical",
+    domain: Object.keys(statusMappings),
+    range: Object.values(statusMappings),
+  },
+  title: "Project status",
+});
+return {legend2};
+}});
+
+define({id: "18abb438", inputs: ["Plot","typeMappings"], outputs: ["legend3"], body: (Plot,typeMappings) => {
+const legend3 = Plot.legend({
+  color: {
+    type: "categorical",
+    domain: Object.keys(typeMappings),
+    range: Object.values(typeMappings),
+  },
+  title: "Project type",
+});
+return {legend3};
+}});
+
+define({id: "73b2a33a", inputs: ["housing","colorMappings","typeMapping"], outputs: ["L","renderMap"], body: async (housing,colorMappings,typeMapping) => {
+const L = await import("./_npm/leaflet@1.9.4/d8a0af43.js");
+
+function renderMap(geojson, {}) {
+  const map = L.map("map", {zoomControl: false}).setView(
+    [35.67832322919643, -105.96021175459553],
+    12
+  );
+  // Add a dark gray tile layer to the map
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  }).addTo(map);
+
+  // Add the GeoJSON data to the map
+  L.geoJSON(housing, {
+    style: function (feature) {
+      return {
+        fillColor:
+          colorMappings[feature.properties.AffordableCategory] || "#ffffff", // Default to white if no match
+        color: "#000000", // Border color
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.7,
+      };
+    },
+    onEachFeature: function (feature, layer) {
+      if (feature.properties) {
+        const popupContent = `
+          <strong>Name:</strong> ${feature.properties.NAME}<br>
+          <strong>Project status:</strong> ${feature.properties.PjctStatus}<br>
+          <strong>Type:</strong> ${typeMapping[feature.properties.TYPE]}<br>
+          <strong>Total units:</strong> ${feature.properties.UNITS}<br>
+          <strong>Total affordable:</strong> ${
+            feature.properties.AFFORDABLE
+          }<br>
+          <strong>Affordability category:</strong> ${
+            feature.properties.AffordableCategory
+          }<br>
+        `;
+        layer.bindPopup(popupContent);
+      }
+    },
+  }).addTo(map);
+  L.control.zoom({
+    position: 'topright'
+  }).addTo(map);
+  return map;
+}
+return {L,renderMap};
+}});
+
+define({id: "9f593102", inputs: ["L","housing","statusMappings","typeMapping"], outputs: ["renderMap2"], body: (L,housing,statusMappings,typeMapping) => {
+function renderMap2(geojson, {}) {
+  const map2 = L.map("map2", {zoomControl: false}).setView(
+    [35.67832322919643, -105.96021175459553],
+    12
+  );
+  // Add a dark gray tile layer to the map
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  }).addTo(map2);
+
+  // Add the GeoJSON data to the map
+  L.geoJSON(housing, {
+    style: function (feature) {
+      return {
+        fillColor:
+          statusMappings[feature.properties.PjctStatus] || "#ffffff", // Default to white if no match
+        color: "#000000", // Border color
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.7,
+      };
+    },
+    onEachFeature: function (feature, layer) {
+      if (feature.properties) {
+        const popupContent = `
+          <strong>Name:</strong> ${feature.properties.NAME}<br>
+          <strong>Project status:</strong> ${feature.properties.PjctStatus}<br>
+          <strong>Type:</strong> ${typeMapping[feature.properties.TYPE]}<br>
+          <strong>Total units:</strong> ${feature.properties.UNITS}<br>
+          <strong>Total affordable:</strong> ${
+            feature.properties.AFFORDABLE
+          }<br>
+          <strong>Affordability category:</strong> ${
+            feature.properties.AffordableCategory
+          }<br>
+        `;
+        layer.bindPopup(popupContent);
+      }
+    },
+  }).addTo(map2);
+  L.control.zoom({
+    position: 'topright'
+  }).addTo(map2);
+  return map2;
+}
+return {renderMap2};
+}});
+
+define({id: "511e84e5", inputs: ["L","housing","type2Mappings","typeMapping"], outputs: ["renderMap3"], body: (L,housing,type2Mappings,typeMapping) => {
+function renderMap3(geojson, {}) {
+  const map3 = L.map("map3", {zoomControl: false}).setView(
+    [35.67832322919643, -105.96021175459553],
+    12
+  );
+  // Add a dark gray tile layer to the map
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  }).addTo(map3);
+
+  // Add the GeoJSON data to the map
+  L.geoJSON(housing, {
+    style: function (feature) {
+      return {
+        fillColor:
+          type2Mappings[feature.properties.TYPE] || "#ffffff", // Default to white if no match
+        color: "#000000", // Border color
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.7,
+      };
+    },
+    onEachFeature: function (feature, layer) {
+      if (feature.properties) {
+        const popupContent = `
+          <strong>Name:</strong> ${feature.properties.NAME}<br>
+          <strong>Project status:</strong> ${feature.properties.PjctStatus}<br>
+          <strong>Type:</strong> ${typeMapping[feature.properties.TYPE]}<br>
+          <strong>Total units:</strong> ${feature.properties.UNITS}<br>
+          <strong>Total affordable:</strong> ${
+            feature.properties.AFFORDABLE
+          }<br>
+          <strong>Affordability category:</strong> ${
+            feature.properties.AffordableCategory
+          }<br>
+        `;
+        layer.bindPopup(popupContent);
+      }
+    },
+  }).addTo(map3);
+  L.control.zoom({
+    position: 'topright'
+  }).addTo(map3);
+  return map3;
+}
+return {renderMap3};
+}});
+
+define({id: "1b8e5b45", inputs: ["Plot","statusMappings"], outputs: ["projectStatus"], body: (Plot,statusMappings) => {
+function projectStatus(data, { width } = {}) {
+  return Plot.plot({
+    title: "Project Status",
+    x: { grid: true, inset: 10, label: "Status" },
+    y: { grid: true, label: "Units Count" },
+    marginBottom: 50,
+    color: {
+      legend: true,
+      domain: Object.keys(statusMappings),
+      range: Object.values(statusMappings)
+    },
+    marks: [
+      Plot.barY(data, {
+        x: "PjctStatus",
+        y: "UNITS",
+        fill: "PjctStatus",
+        title: (d) => `Total units: ${d.UNITS}`,
+        tip: true,
+      }),
+    ],
+  });
+}
+return {projectStatus};
+}});
+
+define({id: "afb776df", inputs: ["Plot"], outputs: ["projectType"], body: (Plot) => {
+function projectType(data, { width } = {}) {
+  return Plot.plot({
+    title: "Housing Type",
+    x: { grid: true, inset: 10, label: "Type" },
+    y: { grid: true, label: "Units Count" },
+    marginBottom: 50,
+    color: { legend: true },
+    marks: [
+      Plot.barY(data, {
+        x: "Type",
+        y: "UNITS",
+        fill: "Type",
+        title: (d) => `Total units: ${d.UNITS}`,
+        tip: true,
+      }),
+    ],
+  });
+}
+return {projectType};
+}});
+
+define({id: "7ba14b2d", outputs: ["toggleWrapper"], body: () => {
+  function toggleWrapper() {
+    const wrapper = document.getElementById('code-wrapper');
+    if (wrapper.style.display === 'none') {
+      wrapper.style.display = 'block';
+    } else {
+      wrapper.style.display = 'none';
+    }
+  }
+return {toggleWrapper};
+}});
+
+define({id: "7839822e", inputs: ["html"], outputs: ["createHousingTable"], body: (html) => {
+function createHousingTable(data, { width }) {
+  // Define columns to exclude
+  const excludeColumns = new Set(["FID", "SHAPE_Leng", "SHAPE_Area", "PjctStatus", "PermitID"]);
+
+  // Create table element with specified width
+  const table = html`<table style="border-collapse: collapse; width: ${width}px;">`;
+
+  // Get the headers, excluding specified columns
+  const headers = Object.keys(data[0]).filter((key) => !excludeColumns.has(key));
+
+  // Add headers to the table
+  const headerRow = table.insertRow();
+  headers.forEach((key) => {
+    const th = headerRow.appendChild(document.createElement("th"));
+    th.style.border = "1px solid black";
+    th.style.padding = "8px";
+    th.style.textAlign = "left";
+    th.textContent = key;
+  });
+
+  // Add data rows, excluding specified columns
+  data.forEach((row) => {
+    const tableRow = table.insertRow();
+    headers.forEach((key) => {
+      const cell = tableRow.insertCell();
+      cell.style.border = "1px solid black";
+      cell.style.padding = "8px";
+      cell.textContent = row[key];
+    });
+  });
+
+  return table;
+}
+return {createHousingTable};
+}});
+
+define({id: "b9ca39e0", inputs: ["html","legend","resize","renderMap","housing","toggleWrapper","createHousingTable","housingProperties","affordableCategory","aggregatedData","display"], body: async (html,legend,resize,renderMap,housing,toggleWrapper,createHousingTable,housingProperties,affordableCategory,aggregatedData,display) => {
+display(await(
+html.fragment`<style>
+  .tooltip {
+    font-size: 1.2em;
+  }
+  .legend {
+     position: absolute;
+      z-index: 500;
+      background-color: white;
+      color: #333333;
+      padding: 10px;
+      margin
+  }
+  #map {
+    position: relative;
+    height: 600px;
+  }
+  .wrapper {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .toggle-button {
+    cursor: pointer;
+    background-color: #0072B2;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+  }
+</style>
+<div class="grid grid-cols-1">
+    <div id="map" style="height: 600px;">
+      <span class="legend">${legend}</span>
+      ${resize((width) => renderMap(housing, {width}))}  
+    </div>
+  </div>
+  <button class="toggle-button" onclick=${toggleWrapper}>Show/Hide Table</button>
+  <div id="code-wrapper" class="wrapper" style="display: none;">
+  ${resize((width) => createHousingTable(housingProperties, { width }))}
+  </div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+  <div class="card">
+    ${resize((width) => affordableCategory(aggregatedData, {width}))}
+  </div>
+  <div class="card">
+  <div class="card">
+    <h2>
+      Inclusion <span class="tooltip" title="Requires affordable units in new developments" style="cursor: pointer;">&#9432;</span>
+    </h2>
+    <span class="big">${housingProperties
+      .filter((d) => d.AffordableCategory === "Inclusion")
+      .reduce((sum, d) => sum + d.UNITS, 0)
+      .toLocaleString("en-US")}</span>
+  </div>
+  <div class="card">
+    <h2>
+      Fee in Lieu Of (FILO)
+      <span class="tooltip" title="Developers pay a fee instead of building affordable units" style="cursor: pointer;">&#9432;</span>
+    </h2>
+    <span class="big">${housingProperties
+      .filter((d) => d.AffordableCategory === "FILO")
+      .reduce((sum, d) => sum + d.UNITS, 0)
+      .toLocaleString("en-US")}</span>
+  </div>
+  <div class="card">
+    <h2>
+      Alternative Compliance
+      <span class="tooltip" title="Developers meet affordable housing requirements through off-site options or other means" style="cursor: pointer;">&#9432;</span>
+    </h2>
+    <span class="big">${housingProperties
+      .filter((d) => d.AffordableCategory === "Alternative Compliance")
+      .reduce((sum, d) => sum + d.UNITS, 0)
+      .toLocaleString("en-US")}</span>
+  </div>
+  <div class="card">
+    <h2>
+      Small Project Fee
+      <span class="tooltip" title="A reduced fee for smaller projects, supporting affordable housing funds" style="cursor: pointer;">&#9432;</span>
+    </h2>
+    <span class="big">${housingProperties
+      .filter((d) => d.AffordableCategory === "Small Project Fee")
+      .reduce((sum, d) => sum + d.UNITS, 0)
+      .toLocaleString("en-US")}</span>
+  </div>
+</div>`
+))
+}});
+
+define({id: "5f81ce32", inputs: ["html","legend2","resize","renderMap2","housing","projectStatus","aggregatedStatus","housingProperties","display"], body: async (html,legend2,resize,renderMap2,housing,projectStatus,aggregatedStatus,housingProperties,display) => {
+display(await(
+html.fragment`<style>
+  .tooltip {
+    font-size: 1.2em;
+  }
+  .legend2 {
+     position: absolute;
+      z-index: 500;
+      background-color: white;
+      color: #333333;
+      padding: 10px;
+      margin
+  }
+  #map2 {
+    position: relative;
+    height: 600px;
+  }
+</style>
+<div class="grid grid-cols-1">
+    <div id="map2">
+      <span class="legend2">${legend2}</span>
+      ${resize((width) => renderMap2(housing, {width}))}
+    </div>
+  </div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+  <div class="card">
+    ${resize((width) => projectStatus(aggregatedStatus, {width}))}
+  </div>
+  <div class="card">
+  <div class="card">
+    <h2>
+      Completed Units
+      <span class="tooltip" title="Completed Units" style="cursor: pointer;"
+        >&#9432;</span
+      >
+    </h2>
+    <span class="big"
+      >${housingProperties .filter((d) => d.PjctStatus === "Completed")
+      .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
+    >
+  </div>
+  <div class="card">
+    <h2>
+      Units Under Construction
+      <span
+        class="tooltip"
+        title="Units Under Construction"
+        style="cursor: pointer;"
+        >&#9432;</span
+      >
+    </h2>
+    <span class="big"
+      >${housingProperties .filter((d) => d.PjctStatus === "Under Construction")
+      .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
+    >
+  </div>
+  <div class="card">
+    <h2>
+      Units Approved
+      <span class="tooltip" title="Units Approved" style="cursor: pointer;"
+        >&#9432;</span
+      >
+    </h2>
+    <span class="big"
+      >${housingProperties .filter((d) => d.PjctStatus === "Approved")
+      .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
+    >
+  </div>
+  <div class="card">
+    <h2>
+      Units Under Review
+      <span class="tooltip" title="Units Under Review" style="cursor: pointer;"
+        >&#9432;</span
+      >
+    </h2>
+    <span class="big"
+      >${housingProperties .filter((d) => d.PjctStatus === "Under Review")
+      .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
+    >
+  </div>
+  
+</div>`
+))
+}});
+
+define({id: "a59b2ec4", inputs: ["html","legend3","resize","renderMap3","housing","projectType","aggregatedType","housingProperties","display"], body: async (html,legend3,resize,renderMap3,housing,projectType,aggregatedType,housingProperties,display) => {
+display(await(
+html.fragment`<style>
+  .tooltip {
+    font-size: 1.2em;
+  }
+  .legend3 {
+     position: absolute;
+      z-index: 500;
+      background-color: white;
+      color: #333333;
+      padding: 10px;
+      margin
+  }
+  #map3 {
+    position: relative;
+    height: 600px;
+  }
+</style>
+<div class="grid grid-cols-1">
+    <div id="map3">
+      <span class="legend3">${legend3}</span>
+      ${resize((width) => renderMap3(housing, {width}))}
+    </div>
+  </div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+  <div class="card">
+    ${resize((width) => projectType(aggregatedType, {width}))}
+  </div>
+  <div class="card">
+   <div class="card">
+    <h2>
+      Multi-family
+      <span class="tooltip" title="Multi-family" style="cursor: pointer;"
+        >&#9432;</span
+      >
+    </h2>
+    <span class="big"
+      >${housingProperties .filter((d) => d.TYPE === "MF")
+      .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
+    >
+  </div>
+  <div class="card">
+    <h2>
+      Single-family
+      <span class="tooltip" title="Multi-family" style="cursor: pointer;"
+        >&#9432;</span
+      >
+    </h2>
+    <span class="big"
+      >${housingProperties .filter((d) => d.TYPE === "SF")
+      .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
+    >
+  </div>
+</div>`
+))
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="./">S3 Housing</a></li>
+  </ol>
+  <ol>
+    <li class="observablehq-link"><a href="./current-market-overview.html">Current Market Conditions</a></li>
+    <li class="observablehq-link"><a href="./historical-market-overview.html">Market Trends Overview</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./z-affordable-housing-overview.html">Affordable Housing Inventory</a></li>
+    <li class="observablehq-link"><a href="./zz-sources.html">Data Sources</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<div id="observablehq-center">
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#project-status">Project Status</a></li>
+<li class="observablehq-secondary-link"><a href="#single-family-vs-multi-family">Single Family vs. Multi-Family</a></li>
+</ol>
+</nav>
+</aside>
+<main id="observablehq-main" class="observablehq">
+<!-- load housing data -->
+<div class="observablehq observablehq--block"><!--:25dea127:--></div>
+<!-- data mappings and data types -->
+<div class="observablehq observablehq--block"><!--:e018adee:--></div>
+<!-- aggregate data for plots -->
+<div class="observablehq observablehq--block"><!--:4862493d:--></div>
+<!-- plot affordability categories -->
+<div class="observablehq observablehq--block"><!--:12da62f5:--></div>
+<!-- legend for affordability categories -->
+<div class="observablehq observablehq--block"><!--:61efb8d1:--></div>
+<!-- legend for status categories -->
+<div class="observablehq observablehq--block"><!--:ea4a2381:--></div>
+<!-- legend for type categories -->
+<div class="observablehq observablehq--block"><!--:18abb438:--></div>
+<!-- map by affordability categories -->
+<div class="observablehq observablehq--block"><!--:73b2a33a:--></div>
+<!-- map by status categories -->
+<div class="observablehq observablehq--block"><!--:9f593102:--></div>
+<!-- map by status categories -->
+<div class="observablehq observablehq--block"><!--:511e84e5:--></div>
+<!-- project status plots -->
+<div class="observablehq observablehq--block"><!--:1b8e5b45:--></div>
+<!-- project type plots -->
+<div class="observablehq observablehq--block"><!--:afb776df:--></div>
+<h1 id="affordable-housing-inventory" tabindex="-1"><a class="observablehq-header-anchor" href="#affordable-housing-inventory">Affordable Housing Inventory</a></h1>
+<h4 id="updated-09-2024-city-of-santa-fe" tabindex="-1"><a class="observablehq-header-anchor" href="#updated-09-2024-city-of-santa-fe">Updated 09/2024 (City of Santa Fe)</a></h4>
+<!-- render cards for inventory status -->
+<!-- render plot and map for affordability status -->
+<div class="observablehq observablehq--block"><!--:7ba14b2d:--></div>
+<div class="observablehq observablehq--block"><!--:7839822e:--></div>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:b9ca39e0:--></div>
+<hr>
+<h2 id="project-status" tabindex="-1"><a class="observablehq-header-anchor" href="#project-status">Project Status</a></h2>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:5f81ce32:--></div>
+<hr>
+<h2 id="single-family-vs-multi-family" tabindex="-1"><a class="observablehq-header-anchor" href="#single-family-vs-multi-family">Single Family vs. Multi-Family</a></h2>
+<!-- render plots for inventory status -->
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:a59b2ec4:--></div>
+<hr>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./historical-market-overview.html"><span>Market Trends Overview</span></a><a rel="next" href="./zz-sources.html"><span>Data Sources</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-12-17T13:26:44">Dec 17, 2024</a>.</div>
+</footer>
+</div>
