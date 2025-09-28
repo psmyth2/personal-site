@@ -15,6 +15,7 @@ RUN NODE_ENV=production pnpm build
 
 # --- Serve with Nginx ---
 FROM nginx:stable-alpine
+ARG NGINX_CONF_VERSION=2025-09-28-1
 WORKDIR /usr/share/nginx/html
 COPY --from=build /app/dist/ /usr/share/nginx/html/
 COPY nginx.conf /etc/nginx/conf.d/default.conf
