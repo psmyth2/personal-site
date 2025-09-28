@@ -99,6 +99,23 @@ const type2Mappings = {
 return {typeMapping,colorMappings,statusMappings,typeMappings,type2Mappings};
 }});
 
+function initLeafletOnce(elId, create) {
+  const el = document.getElementById(elId);
+  if (!el) return null;
+
+  // If we've already created a map for this element, bail out.
+  if (el._leaflet_map) return el._leaflet_map;
+
+  // Create, store, and (optionally) fix sizing once after layout.
+  const map = create(el);
+  el._leaflet_map = map;
+
+  // One-time size fix after first paint (avoid loops in ResizeObserver).
+  requestAnimationFrame(() => { try { map.invalidateSize(); } catch {} });
+
+  return map;
+}
+
 define({id: "4862493d", inputs: ["housing","typeMapping"], outputs: ["housingProperties","aggregatedData","aggregatedStatus","aggregatedType"], body: (housing,typeMapping) => {
 const housingProperties = housing.features.map((d) => d.properties);
 const aggregatedData = Object.entries(
@@ -186,22 +203,11 @@ return {legend3};
 }});
 
 define({id: "73b2a33a", inputs: ["housing","colorMappings","typeMapping"], outputs: ["L","renderMap"], body: async (housing,colorMappings,typeMapping) => {
-  const L = await import("./_npm/leaflet@1.9.4/d8a0af43.js");
+const L = await import("./_npm/leaflet@1.9.4/d8a0af43.js");
 
-  let map; // <-- hold onto the instance
-
-  function renderMap(geojson, {}) {
-    const el = document.getElementById("map");
-    if (!el) return;
-
-    if (map) {
-      // map already exists; just fix layout after container size changes
-      map.invalidateSize();
-      return map;
-    }
-
-    // create once
-    map = L.map(el, { zoomControl: false }).setView([35.67832322919643, -105.96021175459553], 12);
+function renderMap(geojson, {}) {
+  return initLeafletOnce("map", (el) => {
+    const map = L.map(el, { zoomControl: false }).setView([35.67832322919643, -105.96021175459553], 12);
 
     L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
@@ -231,38 +237,31 @@ define({id: "73b2a33a", inputs: ["housing","colorMappings","typeMapping"], outpu
 
     L.control.zoom({ position: "topright" }).addTo(map);
     return map;
-  }
-
-  return { L, renderMap };
+  });
+}
+return {L,renderMap};
 }});
 
-
 define({id: "9f593102", inputs: ["L","housing","statusMappings","typeMapping"], outputs: ["renderMap2"], body: (L,housing,statusMappings,typeMapping) => {
-  let map2;
-
-  function renderMap2(geojson, {}) {
-    const el = document.getElementById("map2");
-    if (!el) return;
-
-    if (map2) { map2.invalidateSize(); return map2; }
-
-    map2 = L.map(el, { zoomControl: false }).setView([35.67832322919643, -105.96021175459553], 12);
+function renderMap2(geojson, {}) {
+  return initLeafletOnce("map2", (el) => {
+    const map2 = L.map(el, { zoomControl: false }).setView([35.67832322919643, -105.96021175459553], 12);
 
     L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+      attribution: '&copy; OpenStreetMap contributors & CARTO'
     }).addTo(map2);
 
     L.geoJSON(housing, {
-      style: (feature) => ({
-        fillColor: statusMappings[feature.properties.PjctStatus] || "#ffffff",
+      style: (f) => ({
+        fillColor: statusMappings[f.properties.PjctStatus] || "#ffffff",
         color: "#000000",
         weight: 1,
         opacity: 1,
         fillOpacity: 0.7
       }),
-      onEachFeature: (feature, layer) => {
-        if (!feature.properties) return;
-        const p = feature.properties;
+      onEachFeature: (f, layer) => {
+        if (!f.properties) return;
+        const p = f.properties;
         layer.bindPopup(`
           <strong>Name:</strong> ${p.NAME}<br>
           <strong>Project status:</strong> ${p.PjctStatus}<br>
@@ -276,37 +275,31 @@ define({id: "9f593102", inputs: ["L","housing","statusMappings","typeMapping"], 
 
     L.control.zoom({ position: "topright" }).addTo(map2);
     return map2;
-  }
-
-  return { renderMap2 };
+  });
+}
+return {renderMap2};
 }});
 
 define({id: "511e84e5", inputs: ["L","housing","type2Mappings","typeMapping"], outputs: ["renderMap3"], body: (L,housing,type2Mappings,typeMapping) => {
-  let map3;
-
-  function renderMap3(geojson, {}) {
-    const el = document.getElementById("map3");
-    if (!el) return;
-
-    if (map3) { map3.invalidateSize(); return map3; }
-
-    map3 = L.map(el, { zoomControl: false }).setView([35.67832322919643, -105.96021175459553], 12);
+function renderMap3(geojson, {}) {
+  return initLeafletOnce("map3", (el) => {
+    const map3 = L.map(el, { zoomControl: false }).setView([35.67832322919643, -105.96021175459553], 12);
 
     L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+      attribution: '&copy; OpenStreetMap contributors & CARTO'
     }).addTo(map3);
 
     L.geoJSON(housing, {
-      style: (feature) => ({
-        fillColor: type2Mappings[feature.properties.TYPE] || "#ffffff",
+      style: (f) => ({
+        fillColor: type2Mappings[f.properties.TYPE] || "#ffffff",
         color: "#000000",
         weight: 1,
         opacity: 1,
         fillOpacity: 0.7
       }),
-      onEachFeature: (feature, layer) => {
-        if (!feature.properties) return;
-        const p = feature.properties;
+      onEachFeature: (f, layer) => {
+        if (!f.properties) return;
+        const p = f.properties;
         layer.bindPopup(`
           <strong>Name:</strong> ${p.NAME}<br>
           <strong>Project status:</strong> ${p.PjctStatus}<br>
@@ -320,9 +313,9 @@ define({id: "511e84e5", inputs: ["L","housing","type2Mappings","typeMapping"], o
 
     L.control.zoom({ position: "topright" }).addTo(map3);
     return map3;
-  }
-
-  return { renderMap3 };
+  });
+}
+return {renderMap3};
 }});
 
 define({id: "1b8e5b45", inputs: ["Plot","statusMappings"], outputs: ["projectStatus"], body: (Plot,statusMappings) => {
