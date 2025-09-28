@@ -5,6 +5,20 @@ import prettier from 'eslint-config-prettier'
 import eslintPluginAstro from 'eslint-plugin-astro'
 
 export default [
+  {
+    ignores: [
+      'node_modules/**',
+      'dist/**',
+      'public/**', // exclude all of public (or narrow to 'public/s3-public/**')
+      '.output/**',
+      '.astro/**',
+      'coverage/**',
+      '*.log',
+      '.env*',
+      '.cache/**',
+      '.DS_Store'
+    ]
+  },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
@@ -24,18 +38,6 @@ export default [
       'astro/no-set-html-directive': 'off'
     }
   },
-  prettier,
-  {
-    ignores: [
-      'dist/**',
-      '.output/**',
-      'node_modules/**',
-      '*.log',
-      '.env*',
-      '.cache/**',
-      '.astro/**',
-      '.DS_Store',
-      'coverage/**'
-    ]
-  }
+
+  prettier
 ]
