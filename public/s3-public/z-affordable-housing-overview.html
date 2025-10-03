@@ -236,6 +236,9 @@ function renderMap(geojson, {}) {
   L.control.zoom({
     position: 'topright'
   }).addTo(map);
+  setTimeout(() => {
+    map.invalidateSize();
+  }, 0);
   return map;
 }
 return {L,renderMap};
@@ -290,6 +293,9 @@ function renderMap2(geojson, {}) {
   L.control.zoom({
     position: 'topright'
   }).addTo(map2);
+  setTimeout(() => {
+    map2.invalidateSize();
+  }, 0);
   return map2;
 }
 return {renderMap2};
@@ -344,6 +350,9 @@ function renderMap3(geojson, {}) {
   L.control.zoom({
     position: 'topright'
   }).addTo(map3);
+  setTimeout(() => {
+    map3.invalidateSize();
+  }, 0);
   return map3;
 }
 return {renderMap3};
