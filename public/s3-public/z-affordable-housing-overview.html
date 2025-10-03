@@ -189,6 +189,10 @@ define({id: "73b2a33a", inputs: ["housing","colorMappings","typeMapping"], outpu
 const L = await import("./_npm/leaflet@1.9.4/d8a0af43.js");
 
 function renderMap(geojson, {}) {
+  const container = L.DomUtil.get("map"); // or map2 / map3
+  if (container != null && container._leaflet_id) {
+    container._leaflet_id = null;
+  }
   const map = L.map("map", {zoomControl: false}).setView(
     [35.67832322919643, -105.96021175459553],
     12
@@ -239,6 +243,10 @@ return {L,renderMap};
 
 define({id: "9f593102", inputs: ["L","housing","statusMappings","typeMapping"], outputs: ["renderMap2"], body: (L,housing,statusMappings,typeMapping) => {
 function renderMap2(geojson, {}) {
+  const container = L.DomUtil.get("map2"); //map2
+  if (container != null && container._leaflet_id) {
+    container._leaflet_id = null;
+  }
   const map2 = L.map("map2", {zoomControl: false}).setView(
     [35.67832322919643, -105.96021175459553],
     12
@@ -289,6 +297,10 @@ return {renderMap2};
 
 define({id: "511e84e5", inputs: ["L","housing","type2Mappings","typeMapping"], outputs: ["renderMap3"], body: (L,housing,type2Mappings,typeMapping) => {
 function renderMap3(geojson, {}) {
+  const container = L.DomUtil.get("map3"); //map3
+  if (container != null && container._leaflet_id) {
+    container._leaflet_id = null;
+  }
   const map3 = L.map("map3", {zoomControl: false}).setView(
     [35.67832322919643, -105.96021175459553],
     12
