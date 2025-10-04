@@ -161,202 +161,181 @@ const legend = Plot.legend({
 return {legend};
 }});
 
-// define({id: "ea4a2381", inputs: ["Plot","statusMappings"], outputs: ["legend2"], body: (Plot,statusMappings) => {
-// const legend2 = Plot.legend({
-//   color: {
-//     type: "categorical",
-//     domain: Object.keys(statusMappings),
-//     range: Object.values(statusMappings),
-//   },
-//   title: "Project status",
-// });
-// return {legend2};
-// }});
-
-// define({id: "18abb438", inputs: ["Plot","typeMappings"], outputs: ["legend3"], body: (Plot,typeMappings) => {
-// const legend3 = Plot.legend({
-//   color: {
-//     type: "categorical",
-//     domain: Object.keys(typeMappings),
-//     range: Object.values(typeMappings),
-//   },
-//   title: "Project type",
-// });
-// return {legend3};
-// }});
-
-define({id: "73b2a33a", inputs: ["housing","colorMappings","typeMapping"], outputs: ["L","renderMap"], body: async (housing,colorMappings,typeMapping) => {
-  const L = await import("./_npm/leaflet@1.9.4/d8a0af43.js");
-
-  let __map = null;
-
-  function renderMap(geojson, {}) {
-    // Ensure container exists & has a size
-    const container = document.getElementById("map");
-    if (!container) return;
-    container.style.height = container.style.height || "600px";
-
-    if (__map) {
-      // Map already created on this container—just size it and return
-      setTimeout(() => __map.invalidateSize(), 0);
-      return __map;
-    }
-
-    // Fresh init once
-    __map = L.map(container, { zoomControl: false }).setView(
-      [35.67832322919643, -105.96021175459553],
-      12
-    );
-
-    // (Use your chosen tiles; leaving your Carto URL here)
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-    }).addTo(__map);
-
-    L.geoJSON(housing, {
-      style: f => ({
-        fillColor: colorMappings[f.properties.AffordableCategory] || "#ffffff",
-        color: "#000000",
-        weight: 1, opacity: 1, fillOpacity: 0.7
-      }),
-      onEachFeature: (feature, layer) => {
-        if (!feature.properties) return;
-        const p = feature.properties;
-        layer.bindPopup(`
-          <strong>Name:</strong> ${p.NAME}<br>
-          <strong>Project status:</strong> ${p.PjctStatus}<br>
-          <strong>Type:</strong> ${typeMapping[p.TYPE]}<br>
-          <strong>Total units:</strong> ${p.UNITS}<br>
-          <strong>Total affordable:</strong> ${p.AFFORDABLE}<br>
-          <strong>Affordability category:</strong> ${p.AffordableCategory}<br>
-        `);
-      }
-    }).addTo(__map);
-
-    L.control.zoom({ position: "topright" }).addTo(__map);
-    setTimeout(() => __map.invalidateSize(), 0);
-    return __map;
-  }
-
-  return { L, renderMap };
+define({id: "ea4a2381", inputs: ["Plot","statusMappings"], outputs: ["legend2"], body: (Plot,statusMappings) => {
+const legend2 = Plot.legend({
+  color: {
+    type: "categorical",
+    domain: Object.keys(statusMappings),
+    range: Object.values(statusMappings),
+  },
+  title: "Project status",
+});
+return {legend2};
 }});
 
-// define({id: "9f593102", inputs: ["L","housing","statusMappings","typeMapping"], outputs: ["renderMap2"], body: (L,housing,statusMappings,typeMapping) => {
-// function renderMap2(geojson, {}) {
-//   const container = L.DomUtil.get("map2"); //map2
-//   if (container != null && container._leaflet_id) {
-//     container._leaflet_id = null;
-//   }
-//   const map2 = L.map("map2", {zoomControl: false}).setView(
-//     [35.67832322919643, -105.96021175459553],
-//     12
-//   );
-//    // Add a dark gray tile layer to the map
-//   L.tileLayer("https://api.maptiler.com/maps/basic/{z}/{x}/{y}@2x.png?key=WVLIzlVUqtdoBkObOEeo", {
-//     attribution: '&copy; OpenStreetMap contributors &copy; MapTiler',
-//     tileSize: 512,
-//     zoomOffset: -1
-//   }).addTo(map2);
+define({id: "18abb438", inputs: ["Plot","typeMappings"], outputs: ["legend3"], body: (Plot,typeMappings) => {
+const legend3 = Plot.legend({
+  color: {
+    type: "categorical",
+    domain: Object.keys(typeMappings),
+    range: Object.values(typeMappings),
+  },
+  title: "Project type",
+});
+return {legend3};
+}});
 
-//   // Add the GeoJSON data to the map
-//   L.geoJSON(housing, {
-//     style: function (feature) {
-//       return {
-//         fillColor:
-//           statusMappings[feature.properties.PjctStatus] || "#ffffff", // Default to white if no match
-//         color: "#000000", // Border color
-//         weight: 1,
-//         opacity: 1,
-//         fillOpacity: 0.7,
-//       };
-//     },
-//     onEachFeature: function (feature, layer) {
-//       if (feature.properties) {
-//         const popupContent = `
-//           <strong>Name:</strong> ${feature.properties.NAME}<br>
-//           <strong>Project status:</strong> ${feature.properties.PjctStatus}<br>
-//           <strong>Type:</strong> ${typeMapping[feature.properties.TYPE]}<br>
-//           <strong>Total units:</strong> ${feature.properties.UNITS}<br>
-//           <strong>Total affordable:</strong> ${
-//             feature.properties.AFFORDABLE
-//           }<br>
-//           <strong>Affordability category:</strong> ${
-//             feature.properties.AffordableCategory
-//           }<br>
-//         `;
-//         layer.bindPopup(popupContent);
-//       }
-//     },
-//   }).addTo(map2);
-//   L.control.zoom({
-//     position: 'topright'
-//   }).addTo(map2);
-//   setTimeout(() => {
-//     map2.invalidateSize();
-//   }, 0);
-//   return map2;
-// }
-// return {renderMap2};
-// }});
+define({id: "73b2a33a", inputs: ["housing","colorMappings","typeMapping"], outputs: ["L","renderMap"], body: async (housing,colorMappings,typeMapping) => {
+const L = await import("./_npm/leaflet@1.9.4/d8a0af43.js");
 
-// define({id: "511e84e5", inputs: ["L","housing","type2Mappings","typeMapping"], outputs: ["renderMap3"], body: (L,housing,type2Mappings,typeMapping) => {
-// function renderMap3(geojson, {}) {
-//   const container = L.DomUtil.get("map3"); //map3
-//   if (container != null && container._leaflet_id) {
-//     container._leaflet_id = null;
-//   }
-//   const map3 = L.map("map3", {zoomControl: false}).setView(
-//     [35.67832322919643, -105.96021175459553],
-//     12
-//   );
-//   // Add a dark gray tile layer to the map
-//   L.tileLayer("https://api.maptiler.com/maps/basic/{z}/{x}/{y}@2x.png?key=WVLIzlVUqtdoBkObOEeo", {
-//     attribution: '&copy; OpenStreetMap contributors &copy; MapTiler',
-//     tileSize: 512,
-//     zoomOffset: -1
-//   }).addTo(map3);
+function renderMap(geojson, {}) {
+  const map = L.map("map", {zoomControl: false}).setView(
+    [35.67832322919643, -105.96021175459553],
+    12
+  );
+  // Add a dark gray tile layer to the map
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  }).addTo(map);
 
-//   // Add the GeoJSON data to the map
-//   L.geoJSON(housing, {
-//     style: function (feature) {
-//       return {
-//         fillColor:
-//           type2Mappings[feature.properties.TYPE] || "#ffffff", // Default to white if no match
-//         color: "#000000", // Border color
-//         weight: 1,
-//         opacity: 1,
-//         fillOpacity: 0.7,
-//       };
-//     },
-//     onEachFeature: function (feature, layer) {
-//       if (feature.properties) {
-//         const popupContent = `
-//           <strong>Name:</strong> ${feature.properties.NAME}<br>
-//           <strong>Project status:</strong> ${feature.properties.PjctStatus}<br>
-//           <strong>Type:</strong> ${typeMapping[feature.properties.TYPE]}<br>
-//           <strong>Total units:</strong> ${feature.properties.UNITS}<br>
-//           <strong>Total affordable:</strong> ${
-//             feature.properties.AFFORDABLE
-//           }<br>
-//           <strong>Affordability category:</strong> ${
-//             feature.properties.AffordableCategory
-//           }<br>
-//         `;
-//         layer.bindPopup(popupContent);
-//       }
-//     },
-//   }).addTo(map3);
-//   L.control.zoom({
-//     position: 'topright'
-//   }).addTo(map3);
-//   setTimeout(() => {
-//     map3.invalidateSize();
-//   }, 0);
-//   return map3;
-// }
-// return {renderMap3};
-// }});
+  // Add the GeoJSON data to the map
+  L.geoJSON(housing, {
+    style: function (feature) {
+      return {
+        fillColor:
+          colorMappings[feature.properties.AffordableCategory] || "#ffffff", // Default to white if no match
+        color: "#000000", // Border color
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.7,
+      };
+    },
+    onEachFeature: function (feature, layer) {
+      if (feature.properties) {
+        const popupContent = `
+          <strong>Name:</strong> ${feature.properties.NAME}<br>
+          <strong>Project status:</strong> ${feature.properties.PjctStatus}<br>
+          <strong>Type:</strong> ${typeMapping[feature.properties.TYPE]}<br>
+          <strong>Total units:</strong> ${feature.properties.UNITS}<br>
+          <strong>Total affordable:</strong> ${
+            feature.properties.AFFORDABLE
+          }<br>
+          <strong>Affordability category:</strong> ${
+            feature.properties.AffordableCategory
+          }<br>
+        `;
+        layer.bindPopup(popupContent);
+      }
+    },
+  }).addTo(map);
+  L.control.zoom({
+    position: 'topright'
+  }).addTo(map);
+  return map;
+}
+return {L,renderMap};
+}});
+
+define({id: "9f593102", inputs: ["L","housing","statusMappings","typeMapping"], outputs: ["renderMap2"], body: (L,housing,statusMappings,typeMapping) => {
+function renderMap2(geojson, {}) {
+  const map2 = L.map("map2", {zoomControl: false}).setView(
+    [35.67832322919643, -105.96021175459553],
+    12
+  );
+  // Add a dark gray tile layer to the map
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  }).addTo(map2);
+
+  // Add the GeoJSON data to the map
+  L.geoJSON(housing, {
+    style: function (feature) {
+      return {
+        fillColor:
+          statusMappings[feature.properties.PjctStatus] || "#ffffff", // Default to white if no match
+        color: "#000000", // Border color
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.7,
+      };
+    },
+    onEachFeature: function (feature, layer) {
+      if (feature.properties) {
+        const popupContent = `
+          <strong>Name:</strong> ${feature.properties.NAME}<br>
+          <strong>Project status:</strong> ${feature.properties.PjctStatus}<br>
+          <strong>Type:</strong> ${typeMapping[feature.properties.TYPE]}<br>
+          <strong>Total units:</strong> ${feature.properties.UNITS}<br>
+          <strong>Total affordable:</strong> ${
+            feature.properties.AFFORDABLE
+          }<br>
+          <strong>Affordability category:</strong> ${
+            feature.properties.AffordableCategory
+          }<br>
+        `;
+        layer.bindPopup(popupContent);
+      }
+    },
+  }).addTo(map2);
+  L.control.zoom({
+    position: 'topright'
+  }).addTo(map2);
+  return map2;
+}
+return {renderMap2};
+}});
+
+define({id: "511e84e5", inputs: ["L","housing","type2Mappings","typeMapping"], outputs: ["renderMap3"], body: (L,housing,type2Mappings,typeMapping) => {
+function renderMap3(geojson, {}) {
+  const map3 = L.map("map3", {zoomControl: false}).setView(
+    [35.67832322919643, -105.96021175459553],
+    12
+  );
+  // Add a dark gray tile layer to the map
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  }).addTo(map3);
+
+  // Add the GeoJSON data to the map
+  L.geoJSON(housing, {
+    style: function (feature) {
+      return {
+        fillColor:
+          type2Mappings[feature.properties.TYPE] || "#ffffff", // Default to white if no match
+        color: "#000000", // Border color
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.7,
+      };
+    },
+    onEachFeature: function (feature, layer) {
+      if (feature.properties) {
+        const popupContent = `
+          <strong>Name:</strong> ${feature.properties.NAME}<br>
+          <strong>Project status:</strong> ${feature.properties.PjctStatus}<br>
+          <strong>Type:</strong> ${typeMapping[feature.properties.TYPE]}<br>
+          <strong>Total units:</strong> ${feature.properties.UNITS}<br>
+          <strong>Total affordable:</strong> ${
+            feature.properties.AFFORDABLE
+          }<br>
+          <strong>Affordability category:</strong> ${
+            feature.properties.AffordableCategory
+          }<br>
+        `;
+        layer.bindPopup(popupContent);
+      }
+    },
+  }).addTo(map3);
+  L.control.zoom({
+    position: 'topright'
+  }).addTo(map3);
+  return map3;
+}
+return {renderMap3};
+}});
 
 define({id: "1b8e5b45", inputs: ["Plot","statusMappings"], outputs: ["projectStatus"], body: (Plot,statusMappings) => {
 function projectStatus(data, { width } = {}) {
@@ -547,151 +526,151 @@ html.fragment`<style>
 ))
 }});
 
-// define({id: "5f81ce32", inputs: ["html","legend2","resize","renderMap2","housing","projectStatus","aggregatedStatus","housingProperties","display"], body: async (html,legend2,resize,renderMap2,housing,projectStatus,aggregatedStatus,housingProperties,display) => {
-// display(await(
-// html.fragment`<style>
-//   .tooltip {
-//     font-size: 1.2em;
-//   }
-//   .legend2 {
-//      position: absolute;
-//       z-index: 500;
-//       background-color: white;
-//       color: #333333;
-//       padding: 10px;
-//       margin
-//   }
-//   #map2 {
-//     position: relative;
-//     height: 600px;
-//   }
-// </style>
-// <div class="grid grid-cols-1">
-//     <div id="map2">
-//       <span class="legend2">${legend2}</span>
-//       ${resize((width) => renderMap2(housing, {width}))}
-//     </div>
-//   </div>
-// </div>
-// <div class="grid grid-cols-4 gap-4">
-//   <div class="card">
-//     ${resize((width) => projectStatus(aggregatedStatus, {width}))}
-//   </div>
-//   <div class="card">
-//   <div class="card">
-//     <h2>
-//       Completed Units
-//       <span class="tooltip" title="Completed Units" style="cursor: pointer;"
-//         >&#9432;</span
-//       >
-//     </h2>
-//     <span class="big"
-//       >${housingProperties .filter((d) => d.PjctStatus === "Completed")
-//       .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
-//     >
-//   </div>
-//   <div class="card">
-//     <h2>
-//       Units Under Construction
-//       <span
-//         class="tooltip"
-//         title="Units Under Construction"
-//         style="cursor: pointer;"
-//         >&#9432;</span
-//       >
-//     </h2>
-//     <span class="big"
-//       >${housingProperties .filter((d) => d.PjctStatus === "Under Construction")
-//       .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
-//     >
-//   </div>
-//   <div class="card">
-//     <h2>
-//       Units Approved
-//       <span class="tooltip" title="Units Approved" style="cursor: pointer;"
-//         >&#9432;</span
-//       >
-//     </h2>
-//     <span class="big"
-//       >${housingProperties .filter((d) => d.PjctStatus === "Approved")
-//       .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
-//     >
-//   </div>
-//   <div class="card">
-//     <h2>
-//       Units Under Review
-//       <span class="tooltip" title="Units Under Review" style="cursor: pointer;"
-//         >&#9432;</span
-//       >
-//     </h2>
-//     <span class="big"
-//       >${housingProperties .filter((d) => d.PjctStatus === "Under Review")
-//       .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
-//     >
-//   </div>
+define({id: "5f81ce32", inputs: ["html","legend2","resize","renderMap2","housing","projectStatus","aggregatedStatus","housingProperties","display"], body: async (html,legend2,resize,renderMap2,housing,projectStatus,aggregatedStatus,housingProperties,display) => {
+display(await(
+html.fragment`<style>
+  .tooltip {
+    font-size: 1.2em;
+  }
+  .legend2 {
+     position: absolute;
+      z-index: 500;
+      background-color: white;
+      color: #333333;
+      padding: 10px;
+      margin
+  }
+  #map2 {
+    position: relative;
+    height: 600px;
+  }
+</style>
+<div class="grid grid-cols-1">
+    <div id="map2">
+      <span class="legend2">${legend2}</span>
+      ${resize((width) => renderMap2(housing, {width}))}
+    </div>
+  </div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+  <div class="card">
+    ${resize((width) => projectStatus(aggregatedStatus, {width}))}
+  </div>
+  <div class="card">
+  <div class="card">
+    <h2>
+      Completed Units
+      <span class="tooltip" title="Completed Units" style="cursor: pointer;"
+        >&#9432;</span
+      >
+    </h2>
+    <span class="big"
+      >${housingProperties .filter((d) => d.PjctStatus === "Completed")
+      .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
+    >
+  </div>
+  <div class="card">
+    <h2>
+      Units Under Construction
+      <span
+        class="tooltip"
+        title="Units Under Construction"
+        style="cursor: pointer;"
+        >&#9432;</span
+      >
+    </h2>
+    <span class="big"
+      >${housingProperties .filter((d) => d.PjctStatus === "Under Construction")
+      .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
+    >
+  </div>
+  <div class="card">
+    <h2>
+      Units Approved
+      <span class="tooltip" title="Units Approved" style="cursor: pointer;"
+        >&#9432;</span
+      >
+    </h2>
+    <span class="big"
+      >${housingProperties .filter((d) => d.PjctStatus === "Approved")
+      .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
+    >
+  </div>
+  <div class="card">
+    <h2>
+      Units Under Review
+      <span class="tooltip" title="Units Under Review" style="cursor: pointer;"
+        >&#9432;</span
+      >
+    </h2>
+    <span class="big"
+      >${housingProperties .filter((d) => d.PjctStatus === "Under Review")
+      .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
+    >
+  </div>
   
-// </div>`
-// ))
-// }});
+</div>`
+))
+}});
 
-// define({id: "a59b2ec4", inputs: ["html","legend3","resize","renderMap3","housing","projectType","aggregatedType","housingProperties","display"], body: async (html,legend3,resize,renderMap3,housing,projectType,aggregatedType,housingProperties,display) => {
-// display(await(
-// html.fragment`<style>
-//   .tooltip {
-//     font-size: 1.2em;
-//   }
-//   .legend3 {
-//      position: absolute;
-//       z-index: 500;
-//       background-color: white;
-//       color: #333333;
-//       padding: 10px;
-//       margin
-//   }
-//   #map3 {
-//     position: relative;
-//     height: 600px;
-//   }
-// </style>
-// <div class="grid grid-cols-1">
-//     <div id="map3">
-//       <span class="legend3">${legend3}</span>
-//       ${resize((width) => renderMap3(housing, {width}))}
-//     </div>
-//   </div>
-// </div>
-// <div class="grid grid-cols-4 gap-4">
-//   <div class="card">
-//     ${resize((width) => projectType(aggregatedType, {width}))}
-//   </div>
-//   <div class="card">
-//    <div class="card">
-//     <h2>
-//       Multi-family
-//       <span class="tooltip" title="Multi-family" style="cursor: pointer;"
-//         >&#9432;</span
-//       >
-//     </h2>
-//     <span class="big"
-//       >${housingProperties .filter((d) => d.TYPE === "MF")
-//       .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
-//     >
-//   </div>
-//   <div class="card">
-//     <h2>
-//       Single-family
-//       <span class="tooltip" title="Multi-family" style="cursor: pointer;"
-//         >&#9432;</span
-//       >
-//     </h2>
-//     <span class="big"
-//       >${housingProperties .filter((d) => d.TYPE === "SF")
-//       .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
-//     >
-//   </div>
-// </div>`
-// ))
-// }});
+define({id: "a59b2ec4", inputs: ["html","legend3","resize","renderMap3","housing","projectType","aggregatedType","housingProperties","display"], body: async (html,legend3,resize,renderMap3,housing,projectType,aggregatedType,housingProperties,display) => {
+display(await(
+html.fragment`<style>
+  .tooltip {
+    font-size: 1.2em;
+  }
+  .legend3 {
+     position: absolute;
+      z-index: 500;
+      background-color: white;
+      color: #333333;
+      padding: 10px;
+      margin
+  }
+  #map3 {
+    position: relative;
+    height: 600px;
+  }
+</style>
+<div class="grid grid-cols-1">
+    <div id="map3">
+      <span class="legend3">${legend3}</span>
+      ${resize((width) => renderMap3(housing, {width}))}
+    </div>
+  </div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+  <div class="card">
+    ${resize((width) => projectType(aggregatedType, {width}))}
+  </div>
+  <div class="card">
+   <div class="card">
+    <h2>
+      Multi-family
+      <span class="tooltip" title="Multi-family" style="cursor: pointer;"
+        >&#9432;</span
+      >
+    </h2>
+    <span class="big"
+      >${housingProperties .filter((d) => d.TYPE === "MF")
+      .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
+    >
+  </div>
+  <div class="card">
+    <h2>
+      Single-family
+      <span class="tooltip" title="Multi-family" style="cursor: pointer;"
+        >&#9432;</span
+      >
+    </h2>
+    <span class="big"
+      >${housingProperties .filter((d) => d.TYPE === "SF")
+      .reduce((sum, d) => sum + d.UNITS, 0) .toLocaleString("en-US")}</span
+    >
+  </div>
+</div>`
+))
+}});
 
 </script>
 <input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
